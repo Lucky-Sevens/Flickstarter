@@ -2,7 +2,7 @@
   "knex": {
     "client": "postgresql",
     "connection": {
-      "host": "process.env.DATABASE_HOST",
+      "host": "ec2-174-129-218-106.compute-1.amazonaws.com",
       "user": "process.env.DATABASE_USER",
       "password": "process.env.DATABASE_PASSWORD",
       "database": "process.env.DATABASE_NAME",
