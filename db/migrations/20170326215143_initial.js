@@ -38,7 +38,6 @@ exports.up = function (knex, Promise) {
       table.string('location').nullable();
       table.string('video_url').nullable();
       table.string('photo_url').nullable();
-      table.string('genre').nullable();
       table.integer('goal_amount');
       table.date('goal_deadline');
       table.integer('upvote_count');
@@ -68,7 +67,6 @@ exports.up = function (knex, Promise) {
       table.integer('receiver_id').references('profiles.id').onDelete('CASCADE');
       table.text('text').notNullable();
       table.boolean('viewed').notNullable();
-      table.timestamp('created_at', true);
     }),
     knex.schema.createTableIfNotExists('user_project_contributions', function(table) {
       table.increments('id').unsigned().primary();

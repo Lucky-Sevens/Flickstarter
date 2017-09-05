@@ -11,7 +11,7 @@ module.exports.getAll = (req, res) => {
 };
 
 module.exports.getOne = (req, res) => {
-  models.Project.where({id: req.body.id}).fetch()
+  models.Project.where({id: req.params.id}).fetch()
     .then(project => {
       if (!project) {
         throw project;
@@ -29,17 +29,16 @@ module.exports.getOne = (req, res) => {
 module.exports.create = (req, res) => {
   models.Project.forge({ 
       name: req.body.name, 
-      short_description: req.body.shortDescription,
-      long_description: req.body.longDescription,
+      shortDescription: req.body.shortDescription,
+      longDescription: req.body.longDescription,
       location: req.body.location,
-      photo_url: req.body.photoUrl,
-      video_url: req.body.videoUrl,
-      goal_amount: req.body.goalAmount,
-      goal_deadline: req.body.goalDeadline,
-      raised_amount: 0,
-      creator_id: req.body.userId,
-      upvote_count: 0,
-      genre: req.body.genre
+      photoUrl: req.body.photoUrl,
+      videoUrl: req.body.videoUrl,
+      goalAmount: req.body.goalAmount,
+      goalDeadline: req.body.goalAmount,
+      amountRaised: req.body.amountRaised,
+      userId: req.body.UserId,
+      upvoteCount: req.body.upvoteCount
     })
     .save()
     .then(result => {
@@ -51,7 +50,7 @@ module.exports.create = (req, res) => {
 };
 
 module.exports.update = (req, res) => {
-  models.Project.where({id: req.body.id}).fetch()
+  models.Project.where({id: req.params.id}).fetch()
     .then(project => {
       if (!project) {
         throw project;
@@ -70,7 +69,7 @@ module.exports.update = (req, res) => {
 };
 
 module.exports.deleteOne = (req, res) => {
-  models.Project.where({id: req.body.id}).fetch()
+  models.Project.where({id: req.params.id}).fetch()
     .then(project => {
       if (!project) {
         throw project;
@@ -89,12 +88,12 @@ module.exports.deleteOne = (req, res) => {
 };
 
 module.exports.upvote = (req, res) => {
-  models.Project.where({id: req.body.id}).fetch()
+  models.Project.where({id: req.params.id}).fetch()
     .then(project => {
       if (!project) {
         throw project;
       }
-      project.query().increment('upvote_count', 1);
+      project.query().increment('upvoteCount', 1);
     })
     .then(() => {
       res.sendStatus(201);
@@ -106,6 +105,4 @@ module.exports.upvote = (req, res) => {
       res.sendStatus(404);
     });
 };
-
-
 
