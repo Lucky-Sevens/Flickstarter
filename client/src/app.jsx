@@ -15,41 +15,15 @@ class App extends React.Component {
       <div>
         <Router>
           <div>
-            <Route exact={true} path='/' component={Home} />
-
-            <Link to={'/createproject'}>
-              <button>Create Project</button>
-            </Link>
-
-            <Link to={'/viewprojects'}>
-              <button>View Projects</button>
-            </Link>
-
-            <Link to={'/profile'}>
-              <button>Profile</button>
-            </Link>
-
-            <Link to={'/messages'}>
-              <button>Messages</button>
-            </Link>
 
             <MenuBar />
 
-            <Route path='/createproject' component={CreateProject} />
-            <Route path='/viewprojects' component={ViewProjects} />
-            <Route path='/profile' component={Profile} />
-            <Route path='/messages' component={Messages} />
+            <Route exact={true} path='/' component={Home} />
+
           </div>
         </Router>
         <Container>
-          <Header as='h1'>Hello world!</Header>
 
-          <Button
-            content='Discover docs'
-            href='http://react.semantic-ui.com'
-            icon='github'
-            labelPosition='left'
-          />
         </Container>
       </div>
     );

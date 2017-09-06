@@ -1,38 +1,43 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import { Menu, Search, Segment } from 'semantic-ui-react';
+import CreateProject from './createProject.jsx';
+import ViewProjects from './viewProjects.jsx';
+import Profile from './profile.jsx';
+import Messages from './messages.jsx';
 
 class MenuBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      activeItem: 'home'
-    };
-  }
-
-  handleItemClick (e, {name}) {
-    this.setState({
-      activeItem: name
-    });
   }
 
   render() {
-    const { activeItem } = this.state;
-
     return (
         <div>
           <Menu pointing secondary>
-            <Menu.Item name='Create Project' active={activeItem === 'Create Project'} onClick={this.handleItemClick} />
-            <Menu.Item name='View Projects' active={activeItem === 'View Projects'} onClick={this.handleItemClick} />
-            <Menu.Menu position='right'>
-              <Menu.Item name='Profile' active={activeItem === 'Profile'} onClick={this.handleItemClick} />
-              <Menu.Item name='Messages' active={activeItem === 'Messages'} onClick={this.handleItemClick} />
-              <Menu.Item name='Logout' active={activeItem === 'Logout'} onClick={this.handleItemClick} />
-            </Menu.Menu>
+            <Link to={'/createproject'}>
+              <Menu.Item name='Create Project' />
+            </Link>
+
+            <Link to={'/viewprojects'}>
+              <Menu.Item name='View Project' />
+            </Link>
+
+            <Menu.Menu position='right' />
+
+            <Link to={'/messages'}>
+              <Menu.Item name='Messages' />
+            </Link>
+
+            <Link to={'/profile'}>
+              <Menu.Item name='Profile' />
+            </Link>
           </Menu>
 
-          <Segment>
-
-          </Segment>
+          <Route path='/createproject' component={CreateProject} />
+          <Route path='/viewprojects' component={ViewProjects} />
+          <Route path='/messages' component={Messages} />
+          <Route path='/profile' component={Profile} />
         </div>
     );
   }
