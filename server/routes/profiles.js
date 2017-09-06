@@ -4,14 +4,13 @@ const router = express.Router();
 const ProfileController = require('../controllers').Profiles
 
 router.route('/')
-  .get(ProfileController.getAll)
+  .get(ProfileController.getAll);
   // .post(ProfileController.create)
-;
+
 
 router.route('/:id')
   .get(ProfileController.getOne)
-  .put(ProfileController.update)
+  .put(ProfileController.update);
   // .delete(ProfileController.deleteOne)
-;
 
 module.exports = router;

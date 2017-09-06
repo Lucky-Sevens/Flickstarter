@@ -43,7 +43,7 @@ exports.up = function (knex, Promise) {
       table.date('goal_deadline');
       table.integer('upvote_count');
       table.integer('raised_amount');
-      table.integer('creator_id').references('profiles.id').onDelete('CASCADE');
+      table.integer('creator_id');
       table.timestamps(true, true);
     }),
     knex.schema.createTableIfNotExists('youtubes', function(table) {

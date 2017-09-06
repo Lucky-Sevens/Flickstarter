@@ -36,9 +36,8 @@ module.exports.undoUpvote = (req, res) => {
     })
     .catch(() => {
       res.sendStatus(404);
-    }); 
+    });
 };
-
 
 module.exports.follow = (req, res) => {
   models.FollowUpvote.forge({
