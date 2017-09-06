@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { Image, Segment } from 'semantic-ui-react';
+
 
 class FeaturedProject extends React.Component {
   constructor(props) {
