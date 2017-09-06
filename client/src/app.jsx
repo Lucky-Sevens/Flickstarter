@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { Button, Container, Header } from 'semantic-ui-react';
 import Home from './components/home.jsx';
 import Profile from './components/profile.jsx';
 import CreateProject from './components/createProject.jsx';
 import ViewProjects from './components/viewProjects.jsx';
-import Search from './components/search.jsx';
 import Messages from './components/messages.jsx';
-import { Button, Container, Header } from 'semantic-ui-react';
+import MenuBar from './components/menuBar.jsx';
 
 class App extends React.Component {
   render() {
@@ -33,7 +33,7 @@ class App extends React.Component {
               <button>Messages</button>
             </Link>
 
-            <Search />
+            <MenuBar />
 
             <Route path='/createproject' component={CreateProject} />
             <Route path='/viewprojects' component={ViewProjects} />
