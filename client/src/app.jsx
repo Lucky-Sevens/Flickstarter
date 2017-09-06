@@ -18,19 +18,7 @@ class App extends React.Component {
 
             <MenuBar />
 
-
             <Route exact={true} path='/' component={Home} />
-
-            <Link to={'/profile'}>
-              <button>Profile</button>
-            </Link>
-
-            <Link to={'/messages'}>
-              <button>Messages</button>
-            </Link>
-
-            <MenuBar />
->>>>>>> Adds formatting of MenuBar
 
           </div>
         </Router>
