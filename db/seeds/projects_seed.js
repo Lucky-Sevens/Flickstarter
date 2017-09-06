@@ -12,7 +12,7 @@ exports.seed = function (knex, Promise) {
       goal_deadline: '11/01/2017',
       raised_amount: 0,
       creator_id: 1,
-      upvote_count: 0,
+      upvote_count: 1,
       genre: 'Documentary'
     }).save();
 };

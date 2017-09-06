@@ -92,7 +92,7 @@ module.exports.deleteOne = (req, res) => {
 };
 
 module.exports.upvote = (req, res) => {
-  models.Project.where({id: req.params.id}).fetch()
+  models.Project.where({id: req.body.id}).fetch()
     .then(project => {
       if (!project) {
         throw project;
@@ -100,7 +100,7 @@ module.exports.upvote = (req, res) => {
       project.query().increment('upvote_count', 1);
     })
     .then(() => {
-      res.sendStatus(201);
+      res.sendStatus(201, project.upvote_count);
     })
     .error(err => {
       res.status(500).send(err);
@@ -111,7 +111,7 @@ module.exports.upvote = (req, res) => {
 };
 
 module.exports.decrementVoteCount = (req, res) => {
-  models.Project.where({id: req.params.id}).fetch()
+  models.Project.where({id: req.body.id}).fetch()
     .then(project => {
       if (!project) {
         throw project;
@@ -119,7 +119,7 @@ module.exports.decrementVoteCount = (req, res) => {
       project.query().increment('upvote_count', -1);
     })
     .then(() => {
-      res.sendStatus(201);
+      res.sendStatus(201, project.upvote_count);
     })
     .error(err => {
       res.status(500).send(err);

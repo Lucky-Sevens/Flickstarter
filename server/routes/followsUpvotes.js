@@ -1,15 +1,15 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-const FollowsUpvotesController = require('../controllers').FollowsUpvotes
-const ProjectController = require('../controllers').Projects
+const FollowsUpvotesController = require('../controllers').FollowsUpvotes;
+const ProjectController = require('../controllers').Projects;
 
 
-router.route('/upvote/:id')
+router.route('/upvote')
   .post(FollowsUpvotesController.upvote)
   .put(ProjectController.upvote);
 
-router.route('/undoUpvote/:id')
+router.route('/undoUpvote')
   .delete(FollowsUpvotesController.undoUpvote)
   .put(ProjectController.decrementVoteCount);
 
