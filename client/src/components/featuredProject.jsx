@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Segment } from 'semantic-ui-react';
+import { Image, Segment } from 'semantic-ui-react';
 
 class FeaturedProject extends React.Component {
   constructor(props) {
@@ -10,9 +10,8 @@ class FeaturedProject extends React.Component {
   render() {
     return (
           <div className="ui raised very padded text container segment fluid">
+            <Image src='https://i2.wp.com/www.anuvawines.com/tasting-argentina/wp-content/uploads/2013/02/Pinot-Noir.jpg' size='small' />
             <h2 className="ui header">Pinot Noir by Miles</h2>
-            <p></p>
-            <p></p>
           </div>
     );
   }
@@ -20,3 +19,5 @@ class FeaturedProject extends React.Component {
 }
 
 export default FeaturedProject;
+
+// https://i2.wp.com/www.anuvawines.com/tasting-argentina/wp-content/uploads/2013/02/Pinot-Noir.jpg

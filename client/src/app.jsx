@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import { Button, Container, Grid, Header, Segment } from 'semantic-ui-react';
-import Home from './components/home.jsx';
+import Welcome from './components/welcome.jsx';
 import Profile from './components/profile.jsx';
 import CreateProject from './components/createProject.jsx';
 import ViewProjects from './components/viewProjects.jsx';
@@ -21,14 +21,21 @@ class App extends React.Component {
 
             <MenuBar />
 
-            <Route exact={true} path='/' component={Home} />
+            <Route exact={true} path='/' component={Welcome} />
 
+            Featured Project
 
             <Segment>
 
               <Grid columns={1} padded>
                 <FeaturedProject />
               </Grid>
+
+            </Segment>
+
+            Trending Projects
+
+            <Segment>
 
               <Grid columns={2} padded>
 
