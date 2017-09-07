@@ -27,8 +27,6 @@ class Home extends React.Component {
 
         <Segment>
 
-          <Filter />
-
             <Grid columns={2} padded>
 
               <Grid.Column>
