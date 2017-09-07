@@ -138,18 +138,80 @@ class CreateProject extends React.Component {
         <div style={{textAlign: 'center', paddingTop: '20px', paddingBottom: '15px'}}>
           <Header as='h1'>Lets get into the details.</Header>
         </div>
-        <Segment 
-          raised
-          style={{textAlign: 'center', width: '80%'}}
-        > 
-          <Container 
-            style={{
-              width: '50%',
-              paddingBottom: '30px',
-              marginTop: '3%',
-              marginBottom: '3%'
-            }}>
-          </Container>
+        <Segment raised style={{textAlign: 'center', width: '98%'}}>
+          <div style={{
+            width: '100%',
+            height: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-evenly',
+            paddingBottom: '30px'
+          }}>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
+              <div style={{width: '28%', textAlign: 'left'}}>
+                <Header as='h3'>Project Image</Header>
+              </div>
+              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+                <p> This is the first thing that people will see when they come across your project. Choose an image that’s crisp and text-free. </p>
+              </div>
+            </div>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
+              <div style={{width: '28%', textAlign: 'left'}}>
+                <Header as='h3'>Project Title</Header>
+              </div>
+              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+                <Input style={{width: '50%'}}
+                  value={this.state.projectTitle}
+                  onChange={this.handleProjectTitleInput}
+                />
+                <p> Giving your project a clear, descriptive name will help people find it. </p>
+              </div>
+            </div>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
+              <div style={{width: '28%', textAlign: 'left'}}>
+                <Header as='h3'>Short blurb</Header>
+              </div>
+              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+                <p> Give people a sense of what you’re doing. Skip “Help me” and focus on what you’re making. </p>
+              </div>
+            </div>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
+              <div style={{width: '28%', textAlign: 'left'}}>
+                <Header as='h3'>Genre</Header>
+              </div>
+              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+
+              </div>
+            </div>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
+              <div style={{width: '28%', textAlign: 'left'}}>
+                <Header as='h3'>Location</Header>
+              </div>
+              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+                <Input style={{width: '50%'}}
+                  value={this.state.projectLocation}
+                  onChange={this.handleProjectLocationInput}
+                />
+                <p> Where will your project be created? </p>
+              </div>
+            </div>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
+              <div style={{width: '28%', textAlign: 'left'}}>
+                <Header as='h3'>Funding Duration</Header>
+              </div>
+              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+                <p> Projects with shorter durations have higher success rates. You won’t be able to adjust your duration after you launch. </p>
+              </div>
+            </div>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
+              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+                <Header as='h3'>Funding Goal</Header>
+              </div>
+              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+                <p> Funding on FlickStarter is all-or-nothing. If your goal isn’t met, no money will be collected. Your goal should reflect the minimum amount of funds you need to complete your project. </p>
+              </div>
+            </div>
+          </div>
           <Button primary onClick={this.handleContinueClick}>Save
           </Button>
         </Segment>
