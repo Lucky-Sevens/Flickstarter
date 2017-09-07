@@ -19,3 +19,17 @@ module.exports.roles = (req, res) => {
       res.status(500);
     });
 };
+
+module.exports.updateUserRoles = (req, res) => {
+  req.body['userrole[]'].map(role => {
+    model.Role.where({position: role}).fetch()
+      .then(data => {
+        model.UserRole.where({user_id: req.user.id, role_id: data.id}).fetch()
+          .then(result => {
+            if (result === null) {
+              return model.UserRole.forge().save({user_id: req.user.id, role_id: data.id}, {method: 'insert'});
+            } 
+          });
+      });
+  });
+};

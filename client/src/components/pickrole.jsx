@@ -3,10 +3,6 @@ import { Grid, Step, Dropdown, Button } from 'semantic-ui-react';
 
 
 const PickRole = (props) => {
-  // let options = [];
-  // props.roles.map(role => {
-  //   options.push({key: role.id, text: role.position, value: role.position});
-  // });
   return (
     <Grid columns={2}>
       <Grid.Column>

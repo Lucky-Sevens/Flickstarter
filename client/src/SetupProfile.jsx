@@ -12,7 +12,7 @@ class SetupProfile extends React.Component {
       firstName: '',
       lastName: '',
       roles: [],
-      chosenRole: '',
+      chosenRole: [],
       experience: '',
       description: '',
       linkedin: '',
@@ -60,8 +60,15 @@ class SetupProfile extends React.Component {
     });
   }
 
-  saveRoles(event) {
-    console.log('saved');
+  saveRoles() {
+    console.log('saved', this.state.chosenRole);
+    $.post('/editprofile/saveuserroles', 
+      {userrole: this.state.chosenRole}, 
+      (data) => {
+        this.setState({
+          roleActive: false
+        });
+      });
   }
 
   handleChange(event) {

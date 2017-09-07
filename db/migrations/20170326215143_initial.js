@@ -81,6 +81,11 @@ exports.up = function (knex, Promise) {
     knex.schema.createTableIfNotExists('genres', function(table) {
       table.increments('id').unsigned().primary();
       table.string('genre').notNullable().unique();
+    }),
+    knex.schema.createTableIfNotExists('users_roles', function(table) {
+      table.increments('id').primary();
+      table.integer('user_id').references('profiles.id').onDelete('CASCADE').notNullable();
+      table.integer('role_id').references('roles.id').notNullable();
     })
   ]);
 };
@@ -93,10 +98,11 @@ exports.down = function (knex, Promise) {
     knex.schema.dropTableIfExists('messages'),
     knex.schema.dropTableIfExists('user_project_contributions'),
     knex.schema.dropTableIfExists('genres'),
-    knex.schema.dropTableIfExists('roles'),
     knex.schema.dropTableIfExists('projects'),
     knex.schema.dropTable('auths'),
-    knex.schema.dropTable('profiles')
+    knex.schema.dropTable('users_roles'),
+    knex.schema.dropTable('profiles'),
+    knex.schema.dropTableIfExists('roles')
   ]);
 };
 
