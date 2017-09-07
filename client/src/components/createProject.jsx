@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, Menu, Container, Header, Input, Button, Segment, Message } from 'semantic-ui-react';
+import { Dropdown, Menu, Container, Header, Input, Button, Segment, Message, TextArea, Form } from 'semantic-ui-react';
 
 class CreateProject extends React.Component {
   constructor(props) {
@@ -177,6 +177,17 @@ class CreateProject extends React.Component {
             </div>
             <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
               <div style={{width: '28%', textAlign: 'left'}}>
+                <Header as='h3'>Full description</Header>
+              </div>
+              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+                <Form>
+                  <TextArea autoHeight placeholder='Add your description here...' />
+                </Form>
+                <p> Here is where you tell the world your detailed plans. </p>
+              </div>
+            </div>
+            <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
+              <div style={{width: '28%', textAlign: 'left'}}>
                 <Header as='h3'>Genre</Header>
               </div>
               <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
@@ -204,7 +215,7 @@ class CreateProject extends React.Component {
               </div>
             </div>
             <div style={{width: '100%', display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'left'}}>
-              <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
+              <div style={{width: '28%', textAlign: 'left', paddingBottom: '15px'}}>
                 <Header as='h3'>Funding Goal</Header>
               </div>
               <div style={{width: '72%', textAlign: 'left', paddingBottom: '15px'}}>
