@@ -19,33 +19,49 @@ class SetupProfile extends React.Component {
       personalSite: '',
       youtube: '',
       photo: '',
-      nameComplete: true,
-      roleComplete: false
+      nameActive: true,
+      roleActive: false
     };
     this.handleNameSubmit = this.handleNameSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.handleRoleSelect = this.handleRoleSelect.bind(this);
+    this.saveRoles = this.saveRoles.bind(this);
   }
 
   componentDidMount () {
     $.get('/editprofile/getroles', data => {
+      let options = [];
+      data.map(role => {
+        options.push({key: role.id, text: role.position, value: role.position});
+      });
       this.setState({
-        roles: data
+        roles: options
       });
     });
   }
 
   handleNameSubmit() {
-    this.setState({
-      nameComplete: false,
-      roleComplete: true
-    });
     $.post('/editprofile/updatename', 
       {username: this.state.username, 
         firstName: this.state.firstName, 
         lastName: this.state.lastName}, 
       (data) => {
-        console.log(data);
+        this.setState({
+          nameActive: false,
+          roleActive: true
+        });
       });
+  }
+
+  handleRoleSelect(event, role) {
+    event.preventDefault();
+    this.setState({
+      chosenRole: role.value
+    });
+  }
+
+  saveRoles(event) {
+    console.log('saved');
   }
 
   handleChange(event) {
@@ -61,15 +77,17 @@ class SetupProfile extends React.Component {
         <Step.Group ordered vertical>
 
           <EditName 
-            nameComplete={this.state.nameComplete}
-            roleComplete={this.state.roleComplete}
+            nameActive={this.state.nameActive}
+            roleActive={this.state.roleActive}
             handleNameSubmit={this.handleNameSubmit}
             handleChange={this.handleChange}
           />
 
           <PickRole
-            roleComplete={this.state.roleComplete}
+            roleActive={this.state.roleActive}
             roles={this.state.roles}
+            handleRoleSelect={this.handleRoleSelect}
+            saveRoles={this.saveRoles}
           />
 
           <Grid columns={2}>

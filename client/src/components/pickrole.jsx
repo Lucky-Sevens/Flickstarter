@@ -3,14 +3,14 @@ import { Grid, Step, Dropdown, Button } from 'semantic-ui-react';
 
 
 const PickRole = (props) => {
-  let options = [];
-  props.roles.map(role => {
-    options.push({key: role.id, text: role.position, value: role.position});
-  });
+  // let options = [];
+  // props.roles.map(role => {
+  //   options.push({key: role.id, text: role.position, value: role.position});
+  // });
   return (
     <Grid columns={2}>
       <Grid.Column>
-        <Step active={props.roleComplete}>
+        <Step active={props.roleActive} disabled={!props.roleActive}>
           <Step.Content>
             <Step.Title>Role</Step.Title>
         What do you do?
@@ -18,7 +18,8 @@ const PickRole = (props) => {
         </Step>
       </Grid.Column>
       <Grid.Column>
-        <Dropdown placeholder='Select Roles' fluid multiple selection options={options} />
+        <Dropdown onChange={props.handleRoleSelect} placeholder='Select Roles' fluid multiple selection options={props.roles} />
+        <Button onClick={props.saveRoles}>Next</Button>
       </Grid.Column>
     </Grid>
   );
