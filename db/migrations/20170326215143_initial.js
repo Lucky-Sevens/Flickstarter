@@ -61,7 +61,6 @@ exports.up = function (knex, Promise) {
       table.string('type').notNullable();
       table.integer('project_id').references('projects.id').onDelete('CASCADE');
       table.integer('user_id').references('profiles.id').onDelete('CASCADE');
-      table.string('type', 6).notNullable();
     }),
     knex.schema.createTableIfNotExists('messages', function(table) {
       table.increments('id').unsigned().primary();
