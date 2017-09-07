@@ -23,9 +23,9 @@ class Home extends React.Component {
 
         Trending Projects
 
-        <Segment>
+        <Filter />
 
-          <Filter />
+        <Segment>
 
             <Grid columns={2} padded>
 
