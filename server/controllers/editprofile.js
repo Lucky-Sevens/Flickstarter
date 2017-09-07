@@ -30,6 +30,13 @@ module.exports.updateUserRoles = (req, res) => {
               return model.UserRole.forge().save({user_id: req.user.id, role_id: data.id}, {method: 'insert'});
             } 
           });
+      })
+      .then(() => {
+        res.status(200).end(); 
+
+      })
+      .catch(() => {
+        res.status(500).end();
       });
   });
 };
