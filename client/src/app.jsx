@@ -19,14 +19,21 @@ class App extends React.Component {
 
             <MenuBar />
 
-            <Route exact={true} path='/' component={Home} />
+            <Route exact={true} path='/' component={Welcome} />
 
+            Featured Project
 
             <Segment>
 
               <Grid columns={1} padded>
                 <FeaturedProject />
               </Grid>
+
+            </Segment>
+
+            Trending Projects
+
+            <Segment>
 
               <Grid columns={2} padded>
 
