@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import { Menu, Search, Segment, Dropdown } from 'semantic-ui-react';
+<<<<<<< HEAD
 import CreateProject from './createProjectView/createProject.jsx';
+=======
+import CreateProject from './createProject.jsx';
+>>>>>>> Fixes Algolia bug
 import ViewProjects from './viewProjects.jsx';
 import Profile from './profile.jsx';
 import Messages from './messages.jsx';

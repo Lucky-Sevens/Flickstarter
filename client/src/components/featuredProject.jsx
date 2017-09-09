@@ -1,6 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+<<<<<<< HEAD
 import {Image, Segment, Icon, Header} from 'semantic-ui-react';
+=======
+import { Image, Segment } from 'semantic-ui-react';
+>>>>>>> Fixes Algolia bug
 import FeaturedProjectStatus from './featuredProjectStatus.jsx';
 
 
@@ -11,6 +15,7 @@ class FeaturedProject extends React.Component {
 
   render() {
     return (
+<<<<<<< HEAD
           <Segment raised style={{height: '96%', width: '96%', margin: '2%'}} >
             <div style={{display: 'flex', flexDirection: 'row'}}>
               <div style={{width: '30%', margin: '2%'}}>
@@ -35,10 +40,20 @@ class FeaturedProject extends React.Component {
             </div>
             <FeaturedProjectStatus />
           </Segment>
+=======
+          <div className="ui raised very padded text container segment fluid">
+            <Image src='https://i2.wp.com/www.anuvawines.com/tasting-argentina/wp-content/uploads/2013/02/Pinot-Noir.jpg' size='small' />
+            <h2 className="ui header">Pinot Noir by Miles</h2>
+            <FeaturedProjectStatus />
+          </div>
+>>>>>>> Fixes Algolia bug
     );
   }
 
 }
 
 export default FeaturedProject;
+<<<<<<< HEAD
 
+=======
+>>>>>>> Fixes Algolia bug

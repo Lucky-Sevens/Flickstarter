@@ -1,6 +1,10 @@
 import React from 'react';
 import { Image, Container, Grid, Step, Button } from 'semantic-ui-react';
+<<<<<<< HEAD
 import ImageUploader from './imageUploader.jsx';
+=======
+import ImageUploader from './ImageUploader.jsx';
+>>>>>>> Fixes Algolia bug
 
 const UploadPhoto = (props) => (
 

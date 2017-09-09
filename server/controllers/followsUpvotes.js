@@ -2,7 +2,11 @@ const models = require('../../db/models');
 
 module.exports.upvote = (req, res) => {
   return models.FollowUpvote.where({
+<<<<<<< HEAD
     project_id: req.body.projectId, 
+=======
+    project_id: req.body.projectId,
+>>>>>>> Fixes Algolia bug
     user_id: req.body.userId,
     type: 'upvote'
   }).fetch()
@@ -11,7 +15,11 @@ module.exports.upvote = (req, res) => {
         throw result;
       }
       return models.FollowUpvote.forge({
+<<<<<<< HEAD
           project_id: req.body.projectId, 
+=======
+          project_id: req.body.projectId,
+>>>>>>> Fixes Algolia bug
           user_id: req.body.userId,
           type: 'upvote'
         })
@@ -27,7 +35,7 @@ module.exports.upvote = (req, res) => {
 
 module.exports.undoUpvote = (req, res) => {
   models.FollowUpvote.where({
-    project_id: req.body.projectId, 
+    project_id: req.body.projectId,
     user_id: req.body.userId,
     type: 'upvote'
   })
@@ -51,7 +59,7 @@ module.exports.undoUpvote = (req, res) => {
 
 module.exports.follow = (req, res) => {
   models.FollowUpvote.forge({
-    project_id: req.body.projectId, 
+    project_id: req.body.projectId,
     user_id: req.body.userId,
     type: 'follow'
   })
@@ -66,7 +74,7 @@ module.exports.follow = (req, res) => {
 
 module.exports.unfollow = (req, res) => {
   models.FollowUpvote.where({
-    project_id: req.body.projectId, 
+    project_id: req.body.projectId,
     user_id: req.body.userId,
     type: 'follow'
   })
@@ -85,7 +93,7 @@ module.exports.unfollow = (req, res) => {
     })
     .catch(() => {
       res.sendStatus(404);
-    }); 
+    });
 };
 
 module.exports.getProjectFollowsUpvotes = (req, res) => {

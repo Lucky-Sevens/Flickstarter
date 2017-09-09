@@ -2,10 +2,17 @@ const models = require('../models');
 
 exports.seed = function (knex, Promise) {
 
+<<<<<<< HEAD
   return models.FollowUpvote.where({ 
     project_id: 1,
     user_id: 1,
     type: 'upvote' 
+=======
+  return models.FollowUpvote.where({
+    project_id: 1,
+    user_id: 1,
+    type: 'upvote'
+>>>>>>> Fixes Algolia bug
   }).fetch()
     .then((followUpvote) => {
       if (followUpvote) {
