@@ -2,11 +2,7 @@ const models = require('../../db/models');
 
 module.exports.upvote = (req, res) => {
   return models.FollowUpvote.where({
-<<<<<<< HEAD
-    project_id: req.body.projectId, 
-=======
     project_id: req.body.projectId,
->>>>>>> Fixes Algolia bug
     user_id: req.body.userId,
     type: 'upvote'
   }).fetch()
@@ -15,21 +11,17 @@ module.exports.upvote = (req, res) => {
         throw result;
       }
       return models.FollowUpvote.forge({
-<<<<<<< HEAD
-          project_id: req.body.projectId, 
-=======
-          project_id: req.body.projectId,
->>>>>>> Fixes Algolia bug
-          user_id: req.body.userId,
-          type: 'upvote'
-        })
+        project_id: req.body.projectId,
+        user_id: req.body.userId,
+        type: 'upvote'
+      })
         .save()
         .then(result => {
           res.status(201).send(result);
         })
         .catch(err => {
           res.status(500).send(err);
-        })
+        });
     }).end(done);
 };
 

@@ -39,11 +39,7 @@ module.exports.view = (req, res) => {
 };
 
 module.exports.get = (req, res) => {
-<<<<<<< HEAD
-  models.Message.where({ 
-=======
   models.Message.where({
->>>>>>> Fixes Algolia bug
     receiver_id: req.params.receiverId
   }).fetch()
     .then(messages => {

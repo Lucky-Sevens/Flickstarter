@@ -1,9 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-<<<<<<< HEAD
-=======
 import $ from 'jquery';
->>>>>>> Fixes Algolia bug
+
 import { Grid, Segment } from 'semantic-ui-react';
 
 import FeaturedProject from './featuredProject.jsx';
@@ -54,37 +52,7 @@ class Home extends React.Component {
 
         <Segment>
 
-<<<<<<< HEAD
-            <Grid columns={2} padded>
-
-              <Grid.Column>
-                <ProjectPreview />
-              </Grid.Column>
-
-              <Grid.Column>
-                <ProjectPreview />
-              </Grid.Column>
-
-              <Grid.Column>
-                <ProjectPreview />
-              </Grid.Column>
-
-              <Grid.Column>
-                <ProjectPreview />
-              </Grid.Column>
-
-              <Grid.Column>
-                <ProjectPreview />
-              </Grid.Column>
-
-              <Grid.Column>
-                <ProjectPreview />
-              </Grid.Column>
-
-            </Grid>
-=======
           <ProjectPreview projects={this.state.projects} />
->>>>>>> Fixes Algolia bug
 
         </Segment>
       </div>
