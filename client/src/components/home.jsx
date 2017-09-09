@@ -43,7 +43,7 @@ class Home extends React.Component {
         <Segment>
           <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginLeft:'2%', marginRight: '2%'}}>
             <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
-              <Header > Trending Projects </Header>
+              <h3 > Trending Projects </h3>
             </div>
             <div>
               <Filter />
