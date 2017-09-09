@@ -50,19 +50,11 @@ xdescribe('FollowsUpvotes API', function () {
   //         user_id: 1,
   //         type: 'upvote'
   //       })
-<<<<<<< HEAD
-  //       .expect(500)    
-  //     })
-    
-  //     .end(done);
-  // });  
-=======
   //       .expect(500)
   //     })
 
   //     .end(done);
   // });
->>>>>>> Fixes Algolia bug
 
   // it('accepts POST requests to /api/followsUpvotes/follow', function (done) {
   //   request(app)

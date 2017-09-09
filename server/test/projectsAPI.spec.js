@@ -18,11 +18,7 @@ describe('Projects API', function () {
     request(app)
       .post('/api/projects/new')
       .send({
-<<<<<<< HEAD
-        name: 'My Awesome Project', 
-=======
         name: 'My Awesome Project',
->>>>>>> Fixes Algolia bug
         short_description: 'The best project',
         long_description: 'This project is really really good',
         location: 'San Francisco, CA',
@@ -35,11 +31,7 @@ describe('Projects API', function () {
       })
       .expect(res => {
         res.body = {
-<<<<<<< HEAD
-          name: res.body.name, 
-=======
           name: res.body.name,
->>>>>>> Fixes Algolia bug
           short_description: res.body.shortDescription,
           long_description: res.body.longDescription,
           location: res.body.location,
@@ -70,11 +62,7 @@ describe('Projects API', function () {
       })
       .end(done);
   });
-<<<<<<< HEAD
-  
-=======
 
->>>>>>> Fixes Algolia bug
   it('accepts GET requests to /api/projects/:id', function (done) {
     request(app)
       .get('/api/projects/1')
