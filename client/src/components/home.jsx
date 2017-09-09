@@ -17,7 +17,7 @@ class Home extends React.Component {
     };
   }
 
-  componentDidMount() {
+  componentWillMount() {
     $.ajax({
       method: 'GET',
       url: '/api/projects',
