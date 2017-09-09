@@ -27,19 +27,19 @@ class MenuBar extends React.Component {
   render() {
     const {activeItem} = this.state;
     return (
-      <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', width: '94%', marginLeft: '3%'}}>
-        <Menu pointing secondary fluid>
-          <Link to={'/createproject'} style={{textDecoration: 'none'}}>
+      <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', width: '92%', marginLeft: '4%', marginBottom: '5%'}}>
+        <Menu pointing secondary fluid fixed='top' style={{backgroundColor: 'white', opacity: '.93'}}>
+          <Link to={'/createproject'} style={{textDecoration: 'none', marginLeft: '3%'}}>
             <Menu.Item name='Create Project' active={activeItem === 'Create Project'} onClick={this.handleItemClick}/>
           </Link>
           <Link to={'/viewprojects'} style={{textDecoration: 'none'}}>
-            <Menu.Item name='View Projects' active={activeItem === 'View Projects'} onClick={this.handleItemClick}/>
+            <Menu.Item name='View Projects' active={activeItem === 'View Projects'} onClick={this.handleItemClick} />
           </Link>
           <Menu.Menu position='right' />
           <Link to={'/messages'} style={{textDecoration: 'none'}}>
             <Menu.Item name='Messages' active={activeItem === 'Messages'} onClick={this.handleItemClick}/>
           </Link>
-          <Menu.Item active={activeItem === 'Profile'}>
+          <Menu.Item active={activeItem === 'Profile'} style={{marginRight: '3%'}}>
             <Dropdown pointing text='Profile'>
               <Dropdown.Menu>
                 <Link to={'/profile'} style={{textDecoration: 'none'}} >
