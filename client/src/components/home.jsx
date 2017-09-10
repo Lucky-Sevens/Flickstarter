@@ -33,7 +33,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <div style={{width: '94%', margin: '2% 0% 0% 3%', paddingtop: '55px'}}>
+      <div style={{width: '94%', margin: '2% 0% 0% 3%', paddingTop: '55px'}}>
         <Segment>
           <Header style={{marginLeft:'2%', marginBottom: '-1%'}}> Featured Project </Header>
           <Grid columns={1} padded>
