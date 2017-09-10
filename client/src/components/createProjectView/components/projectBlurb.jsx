@@ -7,7 +7,7 @@ const ProjectBlurb = (props) => (
       <Header as='h4'>Short blurb</Header>
     </div>
     <div style={{width: '76%', textAlign: 'left', marginBottom: '15px', paddingRight: '15px'}}>
-      <Input fluid 
+      <Input name="projectBlurb" fluid
         onChange={props.handleBlurbInput}
         placeholder='Add your blurb here...'
       />

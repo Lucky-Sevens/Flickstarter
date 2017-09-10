@@ -7,7 +7,8 @@ const ProjectFundingGoal = (props) => (
       <Header as='h4'>Funding goal</Header>
     </div>
     <div style={{width: '76%', textAlign: 'left', marginBottom: '15px', paddingRight: '15px'}}>
-      <Input style={{width: '100px'}}
+      <Input name="projectFundingGoal"
+        style={{width: '100px'}}
         placeholder='e.g. 10,000' 
         onChange={props.handleFundingGoalInput}
         label={{ basic: true, content: '$' }}

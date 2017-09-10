@@ -7,7 +7,8 @@ const ProjectLocation = (props) => (
       <Header as='h4'>Project location</Header>
     </div>
     <div style={{width: '76%', textAlign: 'left', marginBottom: '15px', paddingRight: '15px'}}>
-      <Input style={{width: '50%'}}
+      <Input name="projectLocation"
+        style={{width: '50%'}}
         value={props.projectLocation}
         onChange={props.handleProjectLocationInput}
       />

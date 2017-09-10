@@ -1,5 +1,5 @@
 import React from 'react';
-import { Dropdown, Menu, Container, Header, Input, Button, Segment, Message, TextArea, Form, Image } from 'semantic-ui-react';
+import { Container, Header, Button, Segment, Message } from 'semantic-ui-react';
 import $ from 'jquery';
 import moment from 'moment';
 import LandingGenre from './components/LandingGenre.jsx';
@@ -33,61 +33,30 @@ class CreateProject extends React.Component {
       showSaveModal: false
     };
     this.handleGenreSelection = this.handleGenreSelection.bind(this);
-    this.handleProjectTitleInput = this.handleProjectTitleInput.bind(this);
-    this.handleProjectLocationInput = this.handleProjectLocationInput.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
     this.handleContinueClick = this.handleContinueClick.bind(this);
-    this.handleSaveClick = this.handleSaveClick.bind(this);
     this.getWarningMessage = this.getWarningMessage.bind(this);
-    this.handleProjectDurationInput = this.handleProjectDurationInput.bind(this);
-    this.handleBlurbInput = this.handleBlurbInput.bind(this);
-    this.handleDescriptionInput = this.handleDescriptionInput.bind(this);
-    this.handleFundingGoalInput = this.handleFundingGoalInput.bind(this);
     this.getUploadWidget = this.getUploadWidget.bind(this);
+    this.handleSaveClick = this.handleSaveClick.bind(this);
   };
 
   handleGenreSelection(event, data) {
+    event.preventDefault();
     this.setState({
       projectGenre: data.value, genreDropdownText: data.value, incompleteField: false
     });
   }
 
-  handleProjectTitleInput(event, data) {
+  handleInputChange(event, data) {
+    event.preventDefault();
     this.setState({
-      projectTitle: data.value, incompleteField: false
-    });
-  }
-
-  handleProjectLocationInput(event, data) {
-    this.setState({
-      projectLocation: data.value, incompleteField: false
-    });
-  }
-
-  handleProjectDurationInput(event, data) {
-    this.setState({
-      projectDuration: data.value, incompleteField: false
-    });
-  }
-
-  handleBlurbInput(event, data) {
-    this.setState({
-      projectBlurb: data.value, incompleteField: false
-    });
-  }
-
-  handleDescriptionInput(event, data) {
-    this.setState({
-      projectDescription: data.value, incompleteField: false
-    });
-  }
-
-  handleFundingGoalInput(event, data) {
-    this.setState({
-      projectFundingGoal: data.value, incompleteField: false
+      [event.target.name]: data.value,
+      incompleteField: false
     });
   }
 
   handleContinueClick(event) {
+    event.preventDefault();
     if (this.state.projectGenre !== '' && this.state.projectTitle !== '' && this.state.projectLocation) {
       this.setState({
         currentPage: 'details',
@@ -101,6 +70,7 @@ class CreateProject extends React.Component {
   }
 
   handleSaveClick(event) {
+    event.preventDefault();
     let _this = this;
     if (this.state.projectGenre !== '' && this.state.projectTitle !== '' && this.state.projectLocation !== '' && this.state.projectDuration !== '' && this.state.projectBlurb !== '' && this.state.projectDescription !== '' && this.state.projectFundingGoal !== '' && this.state.projectImage !== '') {
       $.ajax({
@@ -137,13 +107,6 @@ class CreateProject extends React.Component {
     }
   }
 
-  componentDidUpdate() {
-    if (this.state.incompleteField === true) {
-      var element = document.getElementById("saveAlert");
-      element.scrollIntoView();
-    }
-  }
-
   getWarningMessage() {
     return (
       <div id="saveAlert" style={{paddingTop: '5px'}}>
@@ -164,6 +127,13 @@ class CreateProject extends React.Component {
       });
   }
 
+    componentDidUpdate() {
+    if (this.state.incompleteField === true) {
+      var element = document.getElementById("saveAlert");
+      element.scrollIntoView();
+    }
+  }
+
   render() {
     return (
       this.state.currentPage === 'start' ?
@@ -174,8 +144,8 @@ class CreateProject extends React.Component {
         <Segment raised style={{textAlign: 'center', width: '80%'}}> 
           <Container style={{width: '50%', paddingBottom: '30px', marginTop: '3%', marginBottom: '3%'}}>
             <LandingGenre handleGenreSelection={this.handleGenreSelection}/>
-            <LandingTitle handleProjectTitleInput={this.handleProjectTitleInput}/>
-            <LandingLocation handleProjectLocationInput={this.handleProjectLocationInput}/>
+            <LandingTitle handleProjectTitleInput={this.handleInputChange}/>
+            <LandingLocation handleProjectLocationInput={this.handleInputChange}/>
           </Container>
           <Button primary onClick={this.handleContinueClick}>Continue</Button>
           {
@@ -198,21 +168,21 @@ class CreateProject extends React.Component {
               projectImage={this.state.projectImage}
             />
             <ProjectTitle 
-              handleProjectTitleInput={this.handleProjectTitleInput} 
+              handleProjectTitleInput={this.handleInputChange} 
               projectTitle={this.state.projectTitle}
             />
-            <ProjectBlurb handleBlurbInput={this.handleBlurbInput}/>
-            <ProjectDescription handleDescriptionInput={this.handleDescriptionInput}/>
+            <ProjectBlurb handleBlurbInput={this.handleInputChange}/>
+            <ProjectDescription handleDescriptionInput={this.handleInputChange}/>
             <ProjectGenre 
               handleGenreSelection={this.handleGenreSelection} 
               projectGenre={this.state.projectGenre}
             />
             <ProjectLocation 
-              handleProjectLocationInput={this.handleProjectLocationInput} 
+              handleProjectLocationInput={this.handleInputChange} 
               projectLocation={this.state.projectLocation}
             />
-            <ProjectDuration handleProjectDurationInput={this.handleProjectDurationInput}/>
-            <ProjectFundingGoal handleFundingGoalInput={this.handleFundingGoalInput}/>
+            <ProjectDuration handleProjectDurationInput={this.handleInputChange}/>
+            <ProjectFundingGoal handleFundingGoalInput={this.handleInputChange}/>
           </div>
           {this.state.saving ? <Button loading primary onClick={this.handleSaveClick}>Save</Button> : <Button primary onClick={this.handleSaveClick}>Save</Button>}
           {this.state.incompleteField ? this.getWarningMessage() : null}

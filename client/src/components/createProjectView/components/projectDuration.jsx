@@ -7,7 +7,8 @@ const ProjectDuration = (props) => (
       <Header as='h4'>Funding duration</Header>
     </div>
     <div style={{width: '76%', textAlign: 'left', marginBottom: '15px', paddingRight: '15px'}}>
-      <Input style={{width: '70px'}}
+      <Input name="projectDuration"
+        style={{width: '70px'}}
         placeholder='e.g. 30' 
         onChange={props.handleProjectDurationInput}
         label={{ basic: true, content: 'days' }}
