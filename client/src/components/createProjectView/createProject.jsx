@@ -1,10 +1,8 @@
 import React from 'react';
-import { Container, Header, Button, Segment, Message } from 'semantic-ui-react';
+import { Header, Button, Segment, Message } from 'semantic-ui-react';
 import $ from 'jquery';
 import moment from 'moment';
-import LandingGenre from './components/LandingGenre.jsx';
-import LandingTitle from './components/LandingTitle.jsx';
-import LandingLocation from './components/LandingLocation.jsx';
+import LandingPage from './components/landingView/landingPage.jsx';
 import ProjectImage from './components/projectImage.jsx';
 import ProjectTitle from './components/projectTitle.jsx';
 import ProjectBlurb from './components/projectBlurb.jsx';
@@ -137,26 +135,27 @@ class CreateProject extends React.Component {
   render() {
     return (
       this.state.currentPage === 'start' ?
-      <div style={{width: '100%', height: '100%', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center', backgroundColor: '#FFFFFF'}}>
-        <div style={{textAlign: 'center', paddingTop: '20px', paddingBottom: '15px', marginTop: '55px'}}>
-          <Header as='h1'>Create a project</Header>
-        </div>
-        <Segment raised style={{textAlign: 'center', width: '80%'}}> 
-          <Container style={{width: '50%', paddingBottom: '30px', marginTop: '3%', marginBottom: '3%'}}>
-            <LandingGenre handleGenreSelection={this.handleGenreSelection}/>
-            <LandingTitle handleProjectTitleInput={this.handleInputChange}/>
-            <LandingLocation handleProjectLocationInput={this.handleInputChange}/>
-          </Container>
-          <Button primary onClick={this.handleContinueClick}>Continue</Button>
-          {
-            this.state.incompleteField ? this.getWarningMessage() : null
-          }
-        </Segment>
-      </div>
+      <LandingPage 
+        handleGenreSelection={this.handleGenreSelection}
+        handleInputChange={this.handleInputChange}
+        getWarningMessage={this.getWarningMessage}
+        handleContinueClick={this.handleContinueClick}
+        incompleteField={this.state.incompleteField}
+      />
       :
       <div style={{width: '100%', height: '98%', display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', marginTop: '55px'}}>
         {
-          this.state.showSaveModal ? <SaveProjectModal projectImage={this.state.projectImage} projectTitle={this.state.projectTitle} projectFundingGoal={this.state.projectFundingGoal} projectDescription={this.state.projectDescription} projectBlurb={this.state.projectBlurb} projectDuration={this.state.projectDuration} projectLocation={this.state.projectLocation} projectGenre={this.state.projectGenre} /> : null
+          this.state.showSaveModal ? 
+          <SaveProjectModal 
+            projectImage={this.state.projectImage} 
+            projectTitle={this.state.projectTitle} 
+            projectFundingGoal={this.state.projectFundingGoal} 
+            projectDescription={this.state.projectDescription} 
+            projectBlurb={this.state.projectBlurb} 
+            projectDuration={this.state.projectDuration} 
+            projectLocation={this.state.projectLocation} 
+            projectGenre={this.state.projectGenre} 
+          /> : null
         }
         <div style={{textAlign: 'center', paddingTop: '20px', paddingBottom: '22px', backgroundColor: '#FFFFFF'}}>
           <Header as='h1'>Let's get into the details</Header>
