@@ -22,7 +22,7 @@ class SaveProjectModal extends React.Component {
             <Image wrapped size='medium' shape='rounded' src={this.props.projectImage}/>
             <Modal.Description>
               <Header>You've created a Flickstarter project. Crowdfunding for {this.props.projectTitle} starts now!</Header>
-              <h5>You can edit your project any time during crowdfunding by navigating to My Projects.</h5>
+              <h5>You can edit your project any time during crowdfunding by navigating to your profile.</h5>
               <List divided relaxed>
                 <List.Item>
                   <List.Header>Title</List.Header>
