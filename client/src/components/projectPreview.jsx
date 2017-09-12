@@ -24,9 +24,9 @@ class ProjectPreview extends React.Component {
         <Grid columns={2} padded>
           {this.props.projects.map((project, index) =>
 
-          <Grid.Column raised key={index}>
+          <Grid.Column key={index}>
 
-            <Card fluid>
+            <Card fluid raised>
 
               <Image src={project.photo_url} />
 
