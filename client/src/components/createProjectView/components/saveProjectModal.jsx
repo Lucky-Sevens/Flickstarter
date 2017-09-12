@@ -1,5 +1,6 @@
 import React from 'react';
 import Home from '../../home.jsx';
+import EditProject from '../../editProject.jsx';
 import { Button, Header, Icon, Modal, Image, List } from 'semantic-ui-react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
@@ -62,12 +63,13 @@ class SaveProjectModal extends React.Component {
             <Button color='blue' basic>
               <Icon name='film' /> View Project
             </Button>
-            <Button color='blue' basic>
+            <Button as={Link} to={'/editproject'} color='blue' basic>
               <Icon name='edit' /> Edit Project
             </Button>
           </Modal.Actions>
         </Modal>
         <Route path='/' component={Home} />
+        <Route path='/editproject' component={EditProject} />
       </div>
     );
   }

@@ -1,6 +1,10 @@
 import React from 'react';
-import { Card, Grid, Icon, Image, Segment, Popup, Label } from 'semantic-ui-react';
+import ReactDOM from 'react-dom';
 import ProjectStatus from './projectStatus.jsx';
+import EditProject from './editProject.jsx';
+import { Card, Grid, Icon, Image, Segment, Popup, Label } from 'semantic-ui-react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+
 
 const ProjectCard = (props) => (
   <Card fluid raised>
@@ -14,7 +18,11 @@ const ProjectCard = (props) => (
           <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '-3%'}}>
             {props.project.name}
             <Popup
-              trigger={<Icon name='edit' circular inverted color='teal'/>}
+              trigger={
+                <Link to={`/editproject/${props.id}`}>
+                  <Icon name='edit' circular inverted color='teal'/>
+                </Link>
+              }
               content='Edit your project'
               position='left center'
             />
@@ -23,7 +31,7 @@ const ProjectCard = (props) => (
       </Card.Header>
 
       <Card.Meta>
-        By {props.creatorName}
+        <Image src={props.photo} avatar fluid/>By {props.creatorName}
       </Card.Meta>
 
       <Card.Description>

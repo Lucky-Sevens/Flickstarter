@@ -96,6 +96,8 @@ class Profile extends React.Component {
                     daysRemaining={this.daysRemaining}
                     profilePage={this.state.username}
                     creatorName={this.state.first + ' ' + this.state.last}
+                    photo={this.state.photo}
+                    id={project.id}
                   />
                 )}
               </Container>
