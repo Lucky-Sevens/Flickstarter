@@ -9,7 +9,7 @@ import ProjectBlurb from './createProjectView/components/projectBlurb.jsx';
 import ProjectDescription from './createProjectView/components/projectDescription.jsx';
 import ProjectGenre from './createProjectView/components/projectGenre.jsx';
 import ProjectLocation from './createProjectView/components/projectLocation.jsx';
-import ProjectDuration from './createProjectView/components/projectDuration.jsx';
+import ProjectDeadline from './createProjectView/components/projectDeadline.jsx';
 import ProjectFundingGoal from './createProjectView/components/projectFundingGoal.jsx';
 import SaveProjectModal from './createProjectView/components/saveProjectModal.jsx';
 
@@ -20,7 +20,7 @@ class EditProject extends React.Component {
       projectGenre: '',
       projectTitle: '',
       projectLocation: '',
-      projectDuration: '',
+      projectDeadline: '',
       projectBlurb: '',
       projectDescription: '',
       projectFundingGoal: '',
@@ -54,7 +54,7 @@ class EditProject extends React.Component {
   handleSaveClick(event) {
     event.preventDefault();
     let _this = this;
-    if (this.state.projectGenre !== '' && this.state.projectTitle !== '' && this.state.projectLocation !== '' && this.state.projectDuration !== '' && this.state.projectBlurb !== '' && this.state.projectDescription !== '' && this.state.projectFundingGoal !== '' && this.state.projectImage !== '') {
+    if (this.state.projectGenre !== '' && this.state.projectTitle !== '' && this.state.projectLocation !== '' && this.state.projectBlurb !== '' && this.state.projectDescription !== '' && this.state.projectFundingGoal !== '' && this.state.projectImage !== '') {
       $.ajax({
         url: '/api/projects/update',
         type: 'PUT',
@@ -65,7 +65,6 @@ class EditProject extends React.Component {
           location: this.state.projectLocation,
           photoUrl: this.state.projectImage,
           goalAmount: this.state.projectFundingGoal,
-          goalDeadline: moment().add(this.state.projectDuration, 'days').calendar(),
           genre: this.state.projectGenre
         },
         success: () => {
@@ -117,13 +116,20 @@ class EditProject extends React.Component {
   }
 
   componentWillMount() {
+    let _this = this;
     $.ajax({
-      url: `/api/projects/:${creator_id}`,
+      url: `/api/projects/${_this.props.match.params.id}`,
       type: 'GET',
-      success: () => {
+      success: (data) => {
         _this.setState({
-          saving: false,
-          showSaveModal: true
+          projectGenre: data.genre,
+          projectTitle: data.name,
+          projectLocation: data.location,
+          projectDeadline: data.goal_deadline,
+          projectBlurb: data.short_description,
+          projectDescription: data.long_description,
+          projectFundingGoal: data.goal_amount,
+          projectImage: data.photo_url
         });
       },
       error: (err) => {
@@ -143,7 +149,7 @@ class EditProject extends React.Component {
             projectFundingGoal={this.state.projectFundingGoal} 
             projectDescription={this.state.projectDescription} 
             projectBlurb={this.state.projectBlurb} 
-            projectDuration={this.state.projectDuration} 
+            // projectDuration={this.state.projectDuration} 
             projectLocation={this.state.projectLocation} 
             projectGenre={this.state.projectGenre} 
           /> : null
@@ -161,8 +167,14 @@ class EditProject extends React.Component {
               handleProjectTitleInput={this.handleInputChange} 
               projectTitle={this.state.projectTitle}
             />
-            <ProjectBlurb handleBlurbInput={this.handleInputChange}/>
-            <ProjectDescription handleDescriptionInput={this.handleInputChange}/>
+            <ProjectBlurb 
+              handleBlurbInput={this.handleInputChange}
+              projectBlurb={this.state.projectBlurb}
+            />
+            <ProjectDescription 
+              handleDescriptionInput={this.handleInputChange}
+              projectDescription={this.state.projectDescription}
+            />
             <ProjectGenre 
               handleGenreSelection={this.handleGenreSelection} 
               projectGenre={this.state.projectGenre}
@@ -171,8 +183,13 @@ class EditProject extends React.Component {
               handleProjectLocationInput={this.handleInputChange} 
               projectLocation={this.state.projectLocation}
             />
-            <ProjectDuration handleProjectDurationInput={this.handleInputChange}/>
-            <ProjectFundingGoal handleFundingGoalInput={this.handleInputChange}/>
+            <ProjectDeadline 
+              projectDeadline={this.state.projectDeadline}
+            />
+            <ProjectFundingGoal 
+              handleFundingGoalInput={this.handleInputChange}
+              projectFundingGoal={this.state.projectFundingGoal}
+            />
           </div>
           {this.state.saving ? <Button loading primary onClick={this.handleSaveClick}>Save</Button> : <Button primary onClick={this.handleSaveClick}>Save</Button>}
           {this.state.incompleteField ? this.getWarningMessage() : null}
