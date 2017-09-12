@@ -7,13 +7,8 @@ import SearchInput, { createFilter } from 'react-search-input';
 import FeaturedProject from './featuredProject.jsx';
 import ProjectPreview from './projectPreview.jsx';
 import Filter from './filter.jsx';
-<<<<<<< HEAD
 import Footer from './footer.jsx';
 import Welcome from './welcome.jsx';
-=======
-import SearchInput, { createFilter } from 'react-search-input';
-//import movies from '../../../algolia/records.json';
->>>>>>> (feat) Remove style from React components, add external stylesheet
 
 const KEYS_TO_FILTERS = ['name'];
 const colors = ['yellow', 'red', 'blue', 'green', 'black', 'pink', 'grey', 'purple', 'teal', 'orange', 'brown'];
@@ -69,8 +64,6 @@ class Home extends React.Component {
             <FeaturedProject />
           </Grid>
         </Segment>
-        Search projects:
-        <SearchInput className="search-input" onChange={this.searchUpdated.bind(this)} />
         <Segment>
           <div id='trending-projects-header-container'>
             <div className='basic-flex-centered-column'>
