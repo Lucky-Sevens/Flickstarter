@@ -45,7 +45,7 @@ const ProjectCard = (props) => (
       <ProjectStatus 
         name={props.project.name} 
         contributed={props.project.raised_amount} 
-        funded={(100 * (props.project.raised_amount / props.project.goal_amount)).toString().slice(0, 2)} 
+        funded={(100 * (props.project.raised_amount / props.project.goal_amount)).toString()} 
         daysRemaining={props.daysRemaining(props.project)}
       />
 

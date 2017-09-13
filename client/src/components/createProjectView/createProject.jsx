@@ -72,7 +72,7 @@ class CreateProject extends React.Component {
     let _this = this;
     if (this.state.projectGenre !== '' && this.state.projectTitle !== '' && this.state.projectLocation !== '' && this.state.projectDuration !== '' && this.state.projectBlurb !== '' && this.state.projectDescription !== '' && this.state.projectFundingGoal !== '' && this.state.projectImage !== '') {
       $.ajax({
-        url: '/api/projects/new',
+        url: '/projects/new',
         type: 'POST',
         data: {
           name: this.state.projectTitle, 

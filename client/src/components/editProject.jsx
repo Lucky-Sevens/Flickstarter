@@ -56,15 +56,15 @@ class EditProject extends React.Component {
     let _this = this;
     if (this.state.projectGenre !== '' && this.state.projectTitle !== '' && this.state.projectLocation !== '' && this.state.projectBlurb !== '' && this.state.projectDescription !== '' && this.state.projectFundingGoal !== '' && this.state.projectImage !== '') {
       $.ajax({
-        url: '/api/projects/update',
+        url: `/projects/update/${this.props.match.params.id}`,
         type: 'PUT',
         data: {
           name: this.state.projectTitle, 
-          shortDescription: this.state.projectBlurb,
-          longDescription: this.state.projectDescription,
+          short_description: this.state.projectBlurb,
+          long_description: this.state.projectDescription,
           location: this.state.projectLocation,
-          photoUrl: this.state.projectImage,
-          goalAmount: this.state.projectFundingGoal,
+          photo_url: this.state.projectImage,
+          goal_amount: this.state.projectFundingGoal,
           genre: this.state.projectGenre
         },
         success: () => {
@@ -118,7 +118,7 @@ class EditProject extends React.Component {
   componentWillMount() {
     let _this = this;
     $.ajax({
-      url: `/api/projects/${_this.props.match.params.id}`,
+      url: `/projects/${_this.props.match.params.id}`,
       type: 'GET',
       success: (data) => {
         _this.setState({

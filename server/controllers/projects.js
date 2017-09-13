@@ -30,7 +30,6 @@ module.exports.getOne = (req, res) => {
 };
 
 module.exports.create = (req, res) => {
-  console.log(req.body);
   models.Project.forge({
     name: req.body.name,
     short_description: req.body.shortDescription,
@@ -54,7 +53,8 @@ module.exports.create = (req, res) => {
 };
 
 module.exports.update = (req, res) => {
-  models.Project.where({id: req.params.id}).save(req.body, {method: 'update'});
+  console.log(req.body);
+  models.Project.where({id: req.params.id}).save(req.body, {method: 'update'})
     .then(() => {
       res.sendStatus(200).send('project has been updated');
     })

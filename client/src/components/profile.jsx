@@ -94,7 +94,7 @@ class Profile extends React.Component {
                     key={index}
                     project={project}
                     daysRemaining={this.daysRemaining}
-                    profilePage={this.state.username}
+                    profilePage={this.state.first}
                     creatorName={this.state.first + ' ' + this.state.last}
                     photo={this.state.photo}
                     id={project.id}
