@@ -31,7 +31,9 @@ const ProjectCard = (props) => (
       </Card.Header>
 
       <Card.Meta>
-        <Image src={props.photo} avatar fluid/>By {props.creatorName}
+        <div style={{display: 'flex', justifyContent: 'left', color: 'black'}}>
+        By {props.creatorName}
+        </div>
       </Card.Meta>
 
       <Card.Description>
@@ -45,7 +47,7 @@ const ProjectCard = (props) => (
       <ProjectStatus 
         name={props.project.name} 
         contributed={props.project.raised_amount} 
-        funded={(100 * (props.project.raised_amount / props.project.goal_amount)).toString()} 
+        funded={Math.round(100 * (props.project.raised_amount / props.project.goal_amount)).toString()} 
         daysRemaining={props.daysRemaining(props.project)}
       />
 
