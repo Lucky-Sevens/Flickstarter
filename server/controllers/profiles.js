@@ -6,24 +6,10 @@ module.exports.getAll = (req, res) => {
       res.status(200).send(profiles);
     })
     .catch(err => {
-      // This code indicates an outside service (the database) did not respond in time
+    // This code indicates an outside service (the database) did not respond in time
       res.status(503).send(err);
     });
 };
-
-// module.exports.create = (req, res) => {
-//   models.Profile.forge({ username: req.body.username, password: req.body.password })
-//     .save()
-//     .then(result => {
-//       res.status(201).send(result.omit('password'));
-//     })
-//     .catch(err => {
-//       if (err.constraint === 'users_username_unique') {
-//         return res.status(403);
-//       }
-//       res.status(500).send(err);
-//     });
-// };
 
 module.exports.getOne = (req, res) => {
   models.Profile.where({ id: req.params.id }).fetch()
@@ -41,13 +27,36 @@ module.exports.getOne = (req, res) => {
     });
 };
 
-module.exports.update = (req, res) => {
+module.exports.getOwn = (req, res) => {
+  let fullProfile = {};
+  models.Profile.where({id: req.user.id}).fetch()
+    .then((profile) => {
+      profile = profile.toJSON();
+      fullProfile.profile = profile;
+      models.Youtube.where({user_id: req.user.id}).fetchAll({columns: ['link']})
+        .then(youtubes => {
+          youtubes = youtubes.toJSON();
+          fullProfile.youtubes = youtubes;
+          models.Project.where({creator_id: req.user.id}).fetchAll()
+            .then(projects => {
+              projects = projects.toJSON();
+              fullProfile.projects = projects;
+              res.status(200).send(fullProfile);
+            });
+        });
+    })
+    .catch(()=> {
+      res.status(500).send('Could not retrieve data');
+    });
+};
+
+module.exports.updateTotalContributions = (req, res) => {
   models.Profile.where({ id: req.params.id }).fetch()
     .then(profile => {
       if (!profile) {
         throw profile;
       }
-      return profile.save(req.body, { method: 'update' });
+      profile.query().increment('upvote_count', req.body.contribution);
     })
     .then(() => {
       res.sendStatus(201);

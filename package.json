@@ -6,7 +6,7 @@
     "start": "node server",
     "test": "NODE_ENV=test grunt test",
     "build": "webpack --watch",
-    "postinstall": "knex migrate:latest & knex migrate:rollback & knex seed:run"
+    "postinstall": "knex migrate:latest & knex seed:run"
 
   },
   "author": "Hack Reactor",
@@ -17,16 +17,21 @@
     "bluebird": "^3.5.0",
     "body-parser": "^1.17.1",
     "bookshelf": "^0.10.3",
+    "cloudinary-react": "^1.0.4",
     "config": "^1.26.1",
     "connect-flash": "^0.1.1",
     "connect-redis": "^3.2.0",
     "cookie-parser": "^1.4.3",
+    "css-loader": "^0.28.7",
     "ejs": "^2.5.6",
     "express": "^4.15.2",
     "express-session": "^1.15.1",
-    "grommet": "^1.7.0",
+    "faker": "^4.1.0",
+    "global": "^4.3.2",
     "grunt-pg": "https://github.com/watsoncj/grunt-pg.git",
+    "jquery": "^3.2.1",
     "knex": "^0.12.9",
+    "moment": "^2.18.1",
     "morgan": "^1.8.1",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
@@ -37,7 +42,11 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-router-dom": "^4.2.2",
-    "redis": "^2.7.1"
+    "react-youtube": "^7.4.0",
+    "react-search-input": "^0.11.2",
+    "redis": "^2.7.1",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.72.0"
   },
   "devDependencies": {
     "babel-loader": "^7.0.0",
@@ -45,6 +54,7 @@
     "babel-preset-latest": "^6.24.0",
     "babel-preset-react": "^6.23.0",
     "chai": "^3.5.0",
+    "file-loader": "^0.11.2",
     "grunt": "~0.4.5",
     "grunt-eslint": "^19.0.0",
     "grunt-mocha-test": "^0.13.2",
