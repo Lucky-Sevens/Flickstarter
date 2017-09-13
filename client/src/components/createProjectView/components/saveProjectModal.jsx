@@ -46,8 +46,8 @@ class SaveProjectModal extends React.Component {
                   {this.props.projectLocation}
                 </List.Item>
                 <List.Item>
-                  <List.Header>Duration</List.Header>
-                  {this.props.projectDuration} days
+                  <List.Header>Campaign End Date</List.Header>
+                  {this.props.projectDeadline}
                 </List.Item>
                 <List.Item>
                   <List.Header>Funding goal</List.Header>
@@ -60,16 +60,16 @@ class SaveProjectModal extends React.Component {
             <Button as={Link} to={'/'} color='blue' basic>
               <Icon name='home' /> Home
             </Button>
-            <Button color='blue' basic>
-              <Icon name='film' /> View Project
-            </Button>
-            <Button as={Link} to={'/editproject'} color='blue' basic>
-              <Icon name='edit' /> Edit Project
-            </Button>
+            <Link to={`/editproject/${this.props.projectId}`}>
+              <Button color='blue' basic
+                onClick={this.props.handleEditProjectClick}
+              >
+                <Icon name='edit' /> Edit Project
+              </Button>
+            </Link>
           </Modal.Actions>
         </Modal>
         <Route path='/' component={Home} />
-        <Route path='/editproject' component={EditProject} />
       </div>
     );
   }

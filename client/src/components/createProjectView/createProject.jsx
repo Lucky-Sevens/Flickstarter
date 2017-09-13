@@ -25,6 +25,7 @@ class CreateProject extends React.Component {
       projectDescription: '',
       projectFundingGoal: '',
       projectImage: '',
+      projectId: '',
       currentPage: 'start',
       incompleteField: false,
       saving: false,
@@ -84,10 +85,11 @@ class CreateProject extends React.Component {
           goalDeadline: moment().add(this.state.projectDuration, 'days').calendar(),
           genre: this.state.projectGenre
         },
-        success: () => {
+        success: (data) => {
           _this.setState({
             saving: false,
-            showSaveModal: true
+            showSaveModal: true,
+            projectId: data.id
           });
         },
         error: (err) => {
@@ -152,9 +154,10 @@ class CreateProject extends React.Component {
             projectFundingGoal={this.state.projectFundingGoal} 
             projectDescription={this.state.projectDescription} 
             projectBlurb={this.state.projectBlurb} 
-            projectDuration={this.state.projectDuration} 
+            projectDeadline={moment().add(this.state.projectDuration, 'days').calendar()} 
             projectLocation={this.state.projectLocation} 
             projectGenre={this.state.projectGenre} 
+            projectId={this.state.projectId}
           /> : null
         }
         <div id='create-project-detail-header'>

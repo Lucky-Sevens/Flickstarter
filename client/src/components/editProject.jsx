@@ -29,11 +29,13 @@ class EditProject extends React.Component {
       saving: false,
       showSaveModal: false
     };
+    
     this.handleGenreSelection = this.handleGenreSelection.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
     this.getWarningMessage = this.getWarningMessage.bind(this);
     this.getUploadWidget = this.getUploadWidget.bind(this);
     this.handleSaveClick = this.handleSaveClick.bind(this);
+    this.handleEditProjectClick = this.handleEditProjectClick.bind(this);
   };
 
   handleGenreSelection(event, data) {
@@ -48,6 +50,12 @@ class EditProject extends React.Component {
     this.setState({
       [event.target.name]: data.value,
       incompleteField: false
+    });
+  }
+
+  handleEditProjectClick() {
+    this.setState({
+      showSaveModal: false
     });
   }
 
@@ -144,14 +152,16 @@ class EditProject extends React.Component {
         {
           this.state.showSaveModal ? 
           <SaveProjectModal 
+            handleEditProjectClick={this.handleEditProjectClick}
             projectImage={this.state.projectImage} 
             projectTitle={this.state.projectTitle} 
             projectFundingGoal={this.state.projectFundingGoal} 
             projectDescription={this.state.projectDescription} 
             projectBlurb={this.state.projectBlurb} 
-            // projectDuration={this.state.projectDuration} 
+            projectDeadline={this.state.projectDeadline} 
             projectLocation={this.state.projectLocation} 
             projectGenre={this.state.projectGenre} 
+            projectId={this.props.match.params.id}
           /> : null
         }
         <div id='create-project-detail-header'>
