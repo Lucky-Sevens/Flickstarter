@@ -5,19 +5,33 @@ import { Link } from 'react-router-dom';
 
 import ProjectStatus from './projectStatus.jsx';
 import SupportModal from './supportModal.jsx';
-
+import EditProject from './editProject.jsx';
+import { Card, Grid, Icon, Image, Segment, Popup, Label, Button } from 'semantic-ui-react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 
 
 const ProjectCard = (props) => (
   <Card fluid raised>
-
-    <Image src={props.project.photo_url}/>
+    <div>
+      <Popup 
+        trigger={
+          <Button circular 
+            icon='thumbs outline up black' 
+            color='white' 
+            id='upvote-button'
+          />
+        }
+        content='Upvote project'
+        position='left center'
+      />
+      <Image src={props.project.photo_url}/>
+    </div>
 
     <Card.Content >
 
       <Card.Header>
         {props.profilePage ?
-          <div style={{display: 'flex', justifyContent: 'space-between', marginBottom: '-3%'}}>
+          <div id='project-card-content-container'>
             {props.project.name}
             <Popup
               trigger={

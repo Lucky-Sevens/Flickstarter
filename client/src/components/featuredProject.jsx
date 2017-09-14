@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Image, Segment, Icon, Header} from 'semantic-ui-react';
+import {Image, Segment, Icon, Header, Label} from 'semantic-ui-react';
 import FeaturedProjectStatus from './featuredProjectStatus.jsx';
 
 class FeaturedProject extends React.Component {
@@ -11,6 +11,7 @@ class FeaturedProject extends React.Component {
   render() {
     return (
       <Segment raised id='featured-project-segment'>
+        <Label color='teal' ribbon size='large'>Featured</Label>
         <div className='basic-flex-row'>
           <div id='featured-project-image-container'>
             <Image shape='rounded' src='http://res.cloudinary.com/dyrrwpemp/image/upload/v1504929225/pxmzjibkdn56bcgfmdt9.jpg' size='medium' />

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import $ from 'jquery';
-import { Grid, Segment, Header, Dropdown } from 'semantic-ui-react';
+import { Grid, Segment, Header, Dropdown, Label } from 'semantic-ui-react';
 import SearchInput, { createFilter } from 'react-search-input';
 
 import FeaturedProject from './featuredProject.jsx';
@@ -61,7 +61,7 @@ class Home extends React.Component {
         <Welcome />
         <br/>
         <OverallStats />
-        <Segment>
+        <Segment style={{paddingTop: '-2%'}}>
           <Header id='featured-project-header'> Featured Project </Header>
           <Grid columns={1} padded>
             <FeaturedProject />
