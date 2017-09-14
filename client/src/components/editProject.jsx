@@ -4,6 +4,7 @@ import $ from 'jquery';
 import moment from 'moment';
 import LandingPage from './createProjectView/components/landingView/landingPage.jsx';
 import ProjectImage from './createProjectView/components/projectImage.jsx';
+import ProjectVideo from './createProjectView/components/projectVideo.jsx';
 import ProjectTitle from './createProjectView/components/projectTitle.jsx';
 import ProjectBlurb from './createProjectView/components/projectBlurb.jsx';
 import ProjectDescription from './createProjectView/components/projectDescription.jsx';
@@ -25,6 +26,7 @@ class EditProject extends React.Component {
       projectDescription: '',
       projectFundingGoal: '',
       projectImage: '',
+      projectVideo: '',
       incompleteField: false,
       saving: false,
       showSaveModal: false
@@ -72,6 +74,7 @@ class EditProject extends React.Component {
           long_description: this.state.projectDescription,
           location: this.state.projectLocation,
           photo_url: this.state.projectImage,
+          video_url: this.state.projectVideo,
           goal_amount: this.state.projectFundingGoal,
           genre: this.state.projectGenre
         },
@@ -98,7 +101,7 @@ class EditProject extends React.Component {
 
   getWarningMessage() {
     return (
-      <div id="saveProjectWarningAlert">
+      <div id="save-project-warning-alert">
         <Message color='red' negative>
           <Message.Header>You must complete each field to continue. </Message.Header>
         </Message>
@@ -118,7 +121,7 @@ class EditProject extends React.Component {
 
   componentDidUpdate() {
     if (this.state.incompleteField === true) {
-      let element = document.getElementById("saveProjectWarningAlert");
+      let element = document.getElementById("save-project-warning-alert");
       element.scrollIntoView();
     }
   }
@@ -137,7 +140,8 @@ class EditProject extends React.Component {
           projectBlurb: data.short_description,
           projectDescription: data.long_description,
           projectFundingGoal: data.goal_amount,
-          projectImage: data.photo_url
+          projectImage: data.photo_url,
+          projectVideo: data.video_url
         });
       },
       error: (err) => {
@@ -154,6 +158,7 @@ class EditProject extends React.Component {
           <SaveProjectModal 
             handleEditProjectClick={this.handleEditProjectClick}
             projectImage={this.state.projectImage} 
+            projectVideo={this.state.projectVideo} 
             projectTitle={this.state.projectTitle} 
             projectFundingGoal={this.state.projectFundingGoal} 
             projectDescription={this.state.projectDescription} 
@@ -172,6 +177,10 @@ class EditProject extends React.Component {
             <ProjectImage 
               getUploadWidget={this.getUploadWidget} 
               projectImage={this.state.projectImage}
+            />
+            <ProjectVideo 
+              handleProjectVideoInput={this.handleInputChange} 
+              projectVideo={this.state.projectVideo}
             />
             <ProjectTitle 
               handleProjectTitleInput={this.handleInputChange} 
