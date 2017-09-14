@@ -1,7 +1,8 @@
 import React from 'react';
-import { Header, Button, Segment, Message } from 'semantic-ui-react';
+import { Header, Button, Segment, Message, Icon } from 'semantic-ui-react';
 import $ from 'jquery';
 import moment from 'moment';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import LandingPage from './createProjectView/components/landingView/landingPage.jsx';
 import ProjectImage from './createProjectView/components/projectImage.jsx';
 import ProjectVideo from './createProjectView/components/projectVideo.jsx';
@@ -210,7 +211,20 @@ class EditProject extends React.Component {
               projectFundingGoal={this.state.projectFundingGoal}
             />
           </div>
-          {this.state.saving ? <Button loading primary onClick={this.handleSaveClick}>Save</Button> : <Button primary onClick={this.handleSaveClick}>Save</Button>}
+          <div className='basic-flex-centered-row'>
+            <Button as={Link} to={'/profile'} color='blue' primary>
+              <Icon name='arrow left' /> Back
+            </Button>
+            {
+              this.state.saving ? 
+              <Button loading primary onClick={this.handleSaveClick}>
+                <Icon name='save' /> Save
+              </Button> : 
+              <Button primary onClick={this.handleSaveClick}>
+                <Icon name='save' /> Save
+              </Button>
+            }
+          </div>
           {this.state.incompleteField ? this.getWarningMessage() : null}
         </Segment>
       </div>

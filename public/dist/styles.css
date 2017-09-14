@@ -58,10 +58,6 @@
   align-items: center;
 }
 
-#featured-project-flex-container {
-  display: flex;
-}
-
 #featured-project-header {
   margin-left: 2%; 
   margin-bottom: -1%;

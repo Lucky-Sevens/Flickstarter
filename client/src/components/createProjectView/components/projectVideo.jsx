@@ -12,7 +12,7 @@ const ProjectVideo = (props) => (
         placeholder='Add video url here...'
         onChange={props.handleProjectVideoInput}
       />
-      <p> Give potential contributors a sneak peek of what they can expect from your project.</p>
+      <p> Give potential contributors a sneak peek of what they can expect from your project. YouTube and Vimeo videos are currently supported.</p>
     </div>
   </div>
 );
