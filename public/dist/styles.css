@@ -14,9 +14,21 @@
   display: flex;
 }
 
+.basic-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 #body-container {
   width: 92%;
   margin: 0% 5% 4% 4%;
+}
+
+.card-genre-upvotes {
+  display: flex;
+  justify-content: space-between;;
+  margin-bottom: 20px;
+  color: #626369;
 }
 
 #create-project-detail-body {
@@ -47,9 +59,13 @@
   text-align: center;
 }
 
+.featured-project-container {
+  margin-top: -32px;
+  width: 50%;
+}
+
 #featured-project-content-container {
-  margin: 2% 2% 2% 0%;
-  width: 70%;
+  margin: 2% 2% 4% 0%;
 }
 
 #featured-project-contribute-button-container {
@@ -58,21 +74,29 @@
   align-items: center;
 }
 
+#featured-project-extras-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 1%;
+  margin-right: 2%;
+  margin-bottom: 3%;
+  font-size: 90%;
+  font-weight: bold;
+}
+
 #featured-project-header {
   margin-left: 2%; 
   margin-bottom: -1%;
 }
 
 #featured-project-image-container {
-  width: 30%;
-  margin: 2%;
+  margin: 2% 4% 2% 2%;
 }
 
-#featured-project-location-container {
-  display: flex;
-  justify-content: space-around;
-  padding-top: 1%;
-  margin-right: 2%;
+
+#featured-project-label {
+  z-index: 1;
+  font-size: 1.2rem;
 }
 
 #featured-project-segment {
@@ -81,14 +105,23 @@
   margin: 2%;
 }
 
+.featured-project-stat {
+  margin-right: 4%;
+}
+
+.featured-project-stat h5 {
+  margin-bottom: 0%;
+}
+
 #featured-project-status-bar {
   margin-bottom: 10px;
 }
 
 #featured-project-statistics-container {
   display: flex; 
-  justify-content: space-evenly; 
+  justify-content: flex-start; 
   padding-right: 2%;
+  margin-top: 1%;
 }
 
 #home-body-container {
@@ -142,6 +175,11 @@
   padding-top: 55px;
 }
 
+.progress-bar-container {
+  width: 100%;
+  margin-bottom: 5px;
+}
+
 #project-card-content-container {
   display: flex;
   justify-content: space-between;
@@ -174,12 +212,10 @@
 }
 
 .project-status-container {
-  width: 70%;
   height: 15%;
   display: flex;
   flex-direction: column;
   justify-content: left;
-  margin-left: 15%;
 }
 
 #project-statistics-container {
@@ -187,7 +223,7 @@
   justify-content: space-evenly;
   text-align: center;
   color: black;
-  margin-top: -14px;
+  margin-top: -10px;
 }
 
 #save-modal-description-container {
@@ -218,6 +254,8 @@
   position: absolute;
   right: .4rem;
   top: .65rem;
+  opacity: 1;
+  color: black;
 }
 
 #video-preview-container {

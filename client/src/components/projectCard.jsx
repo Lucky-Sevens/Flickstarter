@@ -16,19 +16,25 @@ const ProjectCard = (props) => (
       <Popup 
         trigger={
           <Button circular 
-            icon='thumbs outline up black' 
-            color='white' 
+            icon='thumbs outline up' 
             id='upvote-button'
           />
         }
         content='Upvote project'
         position='left center'
       />
-      <Image src={props.project.photo_url}/>
+      <Image fluid src={props.project.photo_url}/>
     </div>
 
     <Card.Content >
-
+      <div className='card-genre-upvotes'>
+        <div>
+          {props.project.genre}
+        </div>
+        <div>
+          <Icon name='thumbs up' /> {props.project.upvote_count}
+        </div>
+      </div>
       <Card.Header>
         {props.profilePage ?
           <div id='project-card-content-container'>
