@@ -278,6 +278,7 @@ class SetupProfile extends React.Component {
       multiple: false,
       gravity: 'custom',
       cropping: 'server',
+      cropping_show_back_button: true,
       cropping_aspect_ratio: 1},
       function(error, result) {
         _this.setState({

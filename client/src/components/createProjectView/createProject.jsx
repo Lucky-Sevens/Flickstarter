@@ -126,9 +126,12 @@ class CreateProject extends React.Component {
       cloud_name: 'dyrrwpemp', 
       upload_preset: 'us2utltx',
       multiple: false,
-      cropping: 'interactive',
-      gravity: 'custom',
-      cropping_aspect_ratio: .5
+      cropping: 'server',
+      cropping_show_back_button: true,
+      cropping_aspect_ratio: 1.333333,
+      max_image_width: 640,
+      max_image_height: 480,
+      cropping_validate_dimensions: true
       },
       function(error, result) {
         _this.setState({
