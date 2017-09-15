@@ -18,7 +18,7 @@ class SaveProjectModal extends React.Component {
   }
 
   getVideoType(url) {
-    if (this.props.projectVideo.includes('vimeo')) {
+    if (url.includes('vimeo')) {
       this.setState({
         videoType: 'vimeo'
       });
@@ -102,7 +102,8 @@ class SaveProjectModal extends React.Component {
               <Icon name='home' /> Home
             </Button>
             <Link to={`/editproject/${this.props.projectId}`}>
-              <Button color='blue' basic
+              <Button basic
+                color='blue'
                 onClick={this.props.handleEditProjectClick}
               >
                 <Icon name='edit' /> Edit Project

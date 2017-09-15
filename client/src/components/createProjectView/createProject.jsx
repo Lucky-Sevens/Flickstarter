@@ -122,7 +122,14 @@ class CreateProject extends React.Component {
 
    getUploadWidget() {
     let _this = this;
-    cloudinary.openUploadWidget({ cloud_name: 'dyrrwpemp', upload_preset: 'us2utltx'},
+    cloudinary.openUploadWidget({ 
+      cloud_name: 'dyrrwpemp', 
+      upload_preset: 'us2utltx',
+      multiple: false,
+      cropping: 'interactive',
+      gravity: 'custom',
+      cropping_aspect_ratio: .5
+      },
       function(error, result) {
         _this.setState({
           projectImage: result[0].url

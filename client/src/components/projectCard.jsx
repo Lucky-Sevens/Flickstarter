@@ -35,17 +35,24 @@ const ProjectCard = (props) => (
       <Card.Header>
         {props.profilePage ?
           <div id='project-card-content-container'>
-            {props.project.name}
+            <Link to={`/project/${props.id}`}>
+              {props.project.name}
+            </Link>
             <Popup
               trigger={
-                <Link to={`/editproject/${props.id}`}>
-                  <Icon name='edit' circular inverted color='teal'/>
-                </Link>
+                <div className='card-title'>
+                  <Link to={`/editproject/${props.id}`}>
+                    <Icon name='edit' circular inverted color='teal'/>
+                  </Link>
+                </div>
               }
               content='Edit your project'
               position='left center'
             />
-          </div> : props.project.name
+          </div> : 
+          <Link to={`/project/${props.project.id}`}>
+            {props.project.name}
+          </Link>
         }
       </Card.Header>
 
