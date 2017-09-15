@@ -2,8 +2,6 @@ import React from 'react';
 import {Statistic, Progress} from 'semantic-ui-react';
 import css from '../css/featuredProjectStatus.css'
 
-import SupportModal from './supportModal.jsx';
-
 class FeaturedProjectStatus extends React.Component {
   constructor(props) {
     super(props);
@@ -31,7 +29,6 @@ class FeaturedProjectStatus extends React.Component {
             <p>days remaining</p>
           </div>
         </div>
-        <SupportModal/>
       </div>
     )
   }

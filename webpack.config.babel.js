@@ -1,6 +1,7 @@
 import webpack from 'webpack';
 import path from 'path';
 const cssLoader = require('css-loader');
+const styleLoader = require('style-loader');
 
 const config = {
   entry: './client/src/index',

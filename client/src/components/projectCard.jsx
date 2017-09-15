@@ -1,8 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Card, Icon, Image, Popup } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-
 import ProjectStatus from './projectStatus.jsx';
 import SupportModal from './supportModal.jsx';
 import EditProject from './editProject.jsx';
@@ -72,7 +69,7 @@ const ProjectCard = (props) => (
         funded={Math.round(100 * (props.project.raised_amount / props.project.goal_amount)).toString()}
         daysRemaining={props.daysRemaining(props.project)}
       />
-
+      
       <SupportModal />
 
     </Card.Content>

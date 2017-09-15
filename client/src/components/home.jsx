@@ -47,6 +47,7 @@ class Home extends React.Component {
   render() {
     const tagOptions = this.state.projects.concat({genre: null}).map(project => {
       return {
+        key: Math.random() * 99999,
         text: project.genre,
         value: project.genre,
         label: { color: colors[Math.floor(Math.random() * colors.length)], empty: true, circular: true }
@@ -62,7 +63,6 @@ class Home extends React.Component {
         <br/>
         <OverallStats />
         <Segment style={{paddingTop: '-2%'}}>
-          <Header id='featured-project-header'> Featured Project </Header>
           <Grid columns={1} padded>
             <FeaturedProject />
           </Grid>

@@ -73,7 +73,7 @@
 #featured-project-contribute-button-container {
   display: flex;
   justify-content: center; 
-  bottom: 1rem;
+  bottom: .8rem;
   width: 100%;
   position: absolute;
 }
@@ -123,6 +123,7 @@
   justify-content: space-evenly; 
   margin-top: 1%;
   text-align: center;
+  padding-bottom: 20px;
 }
 
 #featured-project-statistics-container h5{
@@ -230,6 +231,7 @@
   text-align: center;
   color: black;
   margin-top: -10px;
+  padding-bottom: 10px;
 }
 
 #save-modal-description-container {
