@@ -62,26 +62,31 @@
 .featured-project-container {
   margin-top: -32px;
   width: 50%;
+  position: relative;
 }
 
 #featured-project-content-container {
   margin: 2% 2% 4% 0%;
+  padding-bottom: 25px;
 }
 
 #featured-project-contribute-button-container {
   display: flex;
-  justify-content: space-evenly; 
-  align-items: center;
+  justify-content: center; 
+  bottom: 1rem;
+  width: 100%;
+  position: absolute;
 }
 
 #featured-project-extras-container {
   display: flex;
   justify-content: space-between;
-  padding-top: 1%;
+  padding-top: 8%;
   margin-right: 2%;
   margin-bottom: 3%;
   font-size: 90%;
   font-weight: bold;
+  width: 100%;
 }
 
 #featured-project-header {
@@ -109,20 +114,21 @@
   margin-right: 4%;
 }
 
-.featured-project-stat h5 {
-  margin-bottom: 0%;
-}
-
 #featured-project-status-bar {
   margin-bottom: 10px;
 }
 
 #featured-project-statistics-container {
   display: flex; 
-  justify-content: flex-start; 
-  padding-right: 2%;
+  justify-content: space-evenly; 
   margin-top: 1%;
+  text-align: center;
 }
+
+#featured-project-statistics-container h5{
+  margin-bottom: 0%;
+}
+
 
 #home-body-container {
   width: 94%;

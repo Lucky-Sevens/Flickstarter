@@ -26,14 +26,12 @@ class FeaturedProjectStatus extends React.Component {
             <h5>7,106</h5>
             <p>backers</p>
           </div>
-          <div className='featured-project-stat'>
+          <div>
             <h5>6</h5>
             <p>days remaining</p>
           </div>
         </div>
-
         <SupportModal/>
-
       </div>
     )
   }
