@@ -134,6 +134,9 @@
   margin-bottom: 0%;
 }
 
+h2 {
+  border-top: 0;
+}
 
 #home-body-container {
   width: 94%;

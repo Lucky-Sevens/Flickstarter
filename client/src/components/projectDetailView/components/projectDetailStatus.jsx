@@ -1,5 +1,6 @@
 import React from 'react';
 import {Progress} from 'semantic-ui-react';
+import SupportModal from '../../supportModal.jsx';
 
 const ProjectDetailStatus = (props) => {
   return (
@@ -17,6 +18,7 @@ const ProjectDetailStatus = (props) => {
         <h2>{props.daysRemaining}</h2>
         <p>days remaining</p>
       </div>
+      <SupportModal />
     </div>
   )
 };
