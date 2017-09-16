@@ -7,7 +7,6 @@ const ProjectController = require('../controllers').Projects;
 
 router.route('/upvote')
   .post(FollowsUpvotesController.upvote)
-  .put(ProjectController.upvote);
 
 router.route('/undoUpvote')
   .delete(FollowsUpvotesController.undoUpvote)

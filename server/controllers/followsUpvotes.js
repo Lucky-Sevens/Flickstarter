@@ -1,28 +1,33 @@
 const models = require('../../db/models');
+const knex = require('knex')(require('../../knexfile'));
 
 module.exports.upvote = (req, res) => {
-  return models.FollowUpvote.where({
+  models.FollowUpvote.where({
     project_id: req.body.projectId,
-    user_id: req.body.userId,
+    user_id: req.user.id,
     type: 'upvote'
   }).fetch()
     .then(result => {
       if (result) {
         throw result;
       }
-      return models.FollowUpvote.forge({
-        project_id: req.body.projectId,
-        user_id: req.body.userId,
-        type: 'upvote'
+      return knex('projects')
+      .where('id', '=', req.body.projectId)
+      .increment('upvote_count', 1)
+      .then(() => {
+        return models.FollowUpvote.forge({
+          project_id: req.body.projectId,
+          user_id: req.user.id,
+          type: 'upvote'
+        }).save();
       })
-        .save()
-        .then(result => {
-          res.status(201).send(result);
-        })
-        .catch(err => {
-          res.status(500).send(err);
-        });
-    }).end(done);
+    })
+      .then(result => {
+        res.status(201).send(result);
+      })
+      .catch(result => {
+        res.status(500).send(result);
+      });
 };
 
 module.exports.undoUpvote = (req, res) => {
