@@ -6,7 +6,11 @@ const ProjectDetailHeader = (props) => {
   return (
     <div className='basic-flex-row' style={{marginBottom: '1.4rem'}}>
       <div className='project-detail-creator-container'>
-        {props.project.profile ? <Image shape="circular" size='tiny' src={props.project.profile.photo}/> : null}
+        {props.project.profile ? 
+          <Link to={`/profile/${props.project.profile.id}`}>
+            <Image shape="circular" size='tiny' src={props.project.profile.photo}/> 
+          </Link> : null
+        }
         <div className='project-detail-name-container'> 
           <div className='basic-flex-column' style={{paddingRight: '4px'}}>
             By
@@ -14,7 +18,7 @@ const ProjectDetailHeader = (props) => {
           <div className='basic-flex-column'>
           {props.project.profile ? 
             <Link to={`/profile/${props.project.profile.id}`}>
-              <p style={{fontWeight: 'bold'}}>{props.project.profile.display}</p>
+              <p>{props.project.profile.display}</p>
             </Link> : null
           }
           </div>
