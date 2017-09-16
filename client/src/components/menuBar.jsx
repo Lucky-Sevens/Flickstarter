@@ -107,7 +107,7 @@ class MenuBar extends React.Component {
         <Route path='/profile' component={Profile} />
         <Route path='/editprofile' component={EditProfile} />
         <Route path='/editproject/:id' component={EditProject} />
-        <Route path='/project/:id' component={ProjectDetails} />
+        <Route path='/projects/:id' component={ProjectDetails} />
       </div>
     );
   }

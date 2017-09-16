@@ -38,7 +38,7 @@ const ProjectCard = (props) => (
       <Card.Header>
         {props.profilePage ?
           <div id='project-card-content-container'>
-            <Link to={`/project/${props.id}`}>
+            <Link to={`/projects/${props.id}`}>
               {props.project.name}
             </Link>
             <Popup
@@ -52,8 +52,8 @@ const ProjectCard = (props) => (
               content='Edit your project'
               position='left center'
             />
-          </div> :
-          <Link to={`/project/${props.project.id}`}>
+          </div> : 
+          <Link to={`/projects/${props.project.id}`}>
             {props.project.name}
           </Link>
         }
