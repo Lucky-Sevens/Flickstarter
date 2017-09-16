@@ -21,7 +21,7 @@
 
 .body-container {
   width: 96%;
-  margin: 0% 2% 4% 2%;
+  margin: 0% 2% 0% 2%;
 }
 
 .card-genre-upvotes {
@@ -217,7 +217,7 @@ h2 {
   display: flex;
   flex-direction: column;
   width: 15%;
-  padding-right: 4%;
+  padding-right: 2%;
 }
 
 .project-detail-header {
@@ -257,11 +257,15 @@ h2 {
   padding-top: 8px;
 }
 
+.project-detail-name-container p {
+  color: black;
+}
+
 .project-detail-stats {
   padding-top: 8px;
 }
 
-.project-detail-stats h2{
+.project-detail-stats h2 {
   margin-bottom: 0;
 }
 
