@@ -3,6 +3,7 @@ import Home from '../../home.jsx';
 import EditProject from '../../editProject.jsx';
 import { Button, Header, Icon, Modal, Image, List, Embed } from 'semantic-ui-react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { commafy } from '../../../helpers.js';
 
 class SaveProjectModal extends React.Component {
   constructor(props) {
@@ -10,11 +11,6 @@ class SaveProjectModal extends React.Component {
     this.state = {
       videoType: ''
     }
-    this.commafy = this.commafy.bind(this);
-  }
-
-  commafy(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   }
 
   getVideoType(url) {
@@ -90,7 +86,7 @@ class SaveProjectModal extends React.Component {
                       </List.Item>
                       <List.Item>
                         <List.Header>Funding goal</List.Header>
-                        ${this.commafy(this.props.projectFundingGoal)}
+                        ${commafy(this.props.projectFundingGoal)}
                       </List.Item>
                     </List>
                   </Modal.Description>

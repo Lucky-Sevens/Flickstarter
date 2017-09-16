@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import {Segment, Embed, Progress} from 'semantic-ui-react';
 import Youtube from 'react-youtube';
 import $ from 'jquery';
-import commafy from '../../helpers.js'; 
+import {commafy, getDaysRemaining} from '../../helpers.js'; 
 
 class ProjectDetails extends React.Component {
   constructor(props) {
@@ -11,9 +11,10 @@ class ProjectDetails extends React.Component {
     this.state = {
       project: {},
       videoType: '',
-      daysRemaning: '',
+      daysRemaining: '',
       videoId: '',
-      raisedAmount: ''
+      raisedAmount: '',
+      goalAmount: ''
     };
   }
 
@@ -27,7 +28,9 @@ class ProjectDetails extends React.Component {
           project: data,
           videoId: data.video_url.includes('vimeo') ? data.video_url.substr(data.video_url.length - 9) : data.video_url.substr(data.video_url.length - 11),
           videoType: data.video_url.includes('vimeo') ? 'vimeo' : 'youtube',
-          raisedAmount: commafy(data.raised_amount)
+          daysRemaining: getDaysRemaining(data),
+          raisedAmount: commafy(data.raised_amount),
+          goalAmount: commafy(data.goal_amount)
         });
       },
       error: (err) => {
@@ -82,14 +85,14 @@ class ProjectDetails extends React.Component {
                 Project stats go here
                 <Progress id='featured-project-status-bar' size='small' percent={(this.state.project.raised_amount / this.state.project.goal_amount) * 100} indicating />
                 <div>
-                  ${this.state.project.raised_amount}
-                  <br /> contributed of ${this.state.project.goal_amount} goal
+                  ${this.state.raisedAmount}
+                  <br /> contributed of ${this.state.goalAmount} goal
                 </div>
                 <div>
                   20 contributors
                 </div>
                 <div>
-                  {this.state.daysRemaning} days days remaning
+                  {this.state.daysRemaining} days remaining
                 </div>
               </div>
             </div>

@@ -5,7 +5,7 @@ import SupportModal from './supportModal.jsx';
 import EditProject from './editProject.jsx';
 import { Card, Grid, Icon, Image, Segment, Popup, Label, Button } from 'semantic-ui-react';
 import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
-
+import { getDaysRemaining } from '../helpers.js';
 
 const ProjectCard = (props) => (
   <Card fluid raised>
@@ -74,7 +74,7 @@ const ProjectCard = (props) => (
         name={props.project.name}
         contributed={props.project.raised_amount}
         funded={Math.round(100 * (props.project.raised_amount / props.project.goal_amount)).toString()}
-        daysRemaining={props.daysRemaining(props.project)}
+        daysRemaining={getDaysRemaining(props.project)}
       />
       
       <SupportModal />
