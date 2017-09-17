@@ -13,23 +13,24 @@ class ProjectCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      upvotes: this.props.project.upvote_count
+      upvoteCount: this.props.project.upvote_count,
+      upvoted: this.props.userUpvotes[this.props.project.id] ? true : false
     }
     this.handleUpvote = this.handleUpvote.bind(this);
   }
 
   handleUpvote() {
+    let upvoteCount = this.state.upvoteCount;
+    let isUpvoted = this.state.upvoted;
+    this.setState({
+      upvoteCount: isUpvoted ? upvoteCount - 1 : upvoteCount + 1,
+      upvoted: isUpvoted ? false : true
+    });
     $.ajax({
       url: '/followsUpvotes/upvote',
       type: 'POST',
       data: {
         projectId: this.props.project.id
-      },
-      success: (data) => {
-        let upvoteCount = this.state.upvotes;
-        this.setState({
-          upvotes: upvoteCount + 1
-        });
       },
       error: (err) => {
         console.log(err.statusText, err);
@@ -43,6 +44,7 @@ class ProjectCard extends React.Component {
         <Upvote 
           project={this.props.project}
           handleUpvote={this.handleUpvote}
+          upvoted={this.state.upvoted}
         />
         <Card.Content >
           <div className='card-genre-upvotes'>
@@ -50,7 +52,7 @@ class ProjectCard extends React.Component {
               {this.props.project.genre}
             </div>
             <div>
-              <Icon name='thumbs up' /> {this.state.upvotes}
+              <Icon name='thumbs up' /> {this.state.upvoteCount}
             </div>
           </div>
 
