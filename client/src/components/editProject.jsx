@@ -127,7 +127,7 @@ class EditProject extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let _this = this;
     $.ajax({
       url: `/projects/${_this.props.match.params.id}`,

@@ -21,7 +21,7 @@ class SaveProjectModal extends React.Component {
     }
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getVideoType(this.props.projectVideo);
   }
 

@@ -19,7 +19,7 @@ class ProjectDetails extends React.Component {
     };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     let _this = this;
     $.ajax({
       url: `/projects/${this.props.match.params.id}`,

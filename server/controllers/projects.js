@@ -51,6 +51,28 @@ module.exports.create = (req, res) => {
     upvote_count: 0,
     genre: req.body.genre
   }).save()
+    .then((project) => {
+      console.log(project)
+      if (req.body['projectRoles[]'] && typeof req.body['projectRoles[]'] === 'string') {
+        return models.Role.where({position: req.body['projectRoles[]']}).fetch()
+          .then(role => {
+            return models.OpenRole.forge({
+              project_id: project.id,
+              open_role: role.id
+            }).save();
+          });
+      } else {
+        req.body['projectRoles[]'].forEach(role => {
+          return models.Role.where({position: role}).fetch()
+            .then(result => {
+              return models.OpenRole.forge({
+                project_id: project.id,
+                open_role: result.id
+              }).save();
+            });
+        });
+      }
+    })
     .then(result => {
       res.status(201).send(result);
     })
