@@ -1,26 +1,20 @@
 import React from 'react';
-import { Button, Image, Popup } from 'semantic-ui-react';
+import { Icon, Image, Popup, Button } from 'semantic-ui-react';
 
 const Upvote = (props) =>{
   return (
     <div>
     {
       props.upvoted ? 
-      <Popup
-        trigger={
-          <Button circular
-            icon='thumbs up'
-            id='upvote-button-clicked'
-            onClick={props.handleUpvote}
-          />
-        }
-        content='Undo upvote'
-        position='left center'
+      <Button circular
+        icon='thumbs up'
+        id='upvote-button-clicked'
+        onClick={props.handleUpvote}
       /> :
       <Popup
         trigger={
           <Button circular
-            icon='thumbs up outline'
+            icon='thumbs up'
             id='upvote-button'
             onClick={props.handleUpvote}
           />
@@ -29,7 +23,6 @@ const Upvote = (props) =>{
         position='left center'
       />
     }
-      <Image fluid src={props.project.photo_url}/>
     </div>
   );
 }

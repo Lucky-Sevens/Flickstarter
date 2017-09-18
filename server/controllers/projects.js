@@ -2,7 +2,7 @@ const models = require('../../db/models');
 
 module.exports.getAll = (req, res) => {
   let projectData = {}
-  models.Project.fetchAll({withRelated: ['profile', 'followsUpvotes']})
+  models.Project.fetchAll({withRelated: ['profile']})
     .then(projects => {
       projectData.projects = projects;
       return models.FollowUpvote.where({user_id: req.user.id}).fetchAll()
@@ -21,7 +21,7 @@ module.exports.getAll = (req, res) => {
 };
 
 module.exports.getOne = (req, res) => {
-  models.Project.where({id: req.params.id}).fetch({withRelated: ['profile', 'followsUpvotes']})
+  models.Project.where({id: req.params.id}).fetch({withRelated: ['profile']})
     .then(project => {
       if (!project) {
         throw project;

@@ -41,18 +41,21 @@ class ProjectCard extends React.Component {
   render() {
     return (
       <Card fluid raised>
-        <Upvote 
-          project={this.props.project}
-          handleUpvote={this.handleUpvote}
-          upvoted={this.state.upvoted}
-        />
+        <Image fluid src={this.props.project.photo_url}/>
         <Card.Content >
           <div className='card-genre-upvotes'>
             <div>
               {this.props.project.genre}
             </div>
-            <div>
-              <Icon name='thumbs up' /> {this.state.upvoteCount}
+            <div className='basic-flex-centered-column'>
+              <div className='basic-flex-row'>
+                <Upvote
+                  project={this.props.project}
+                  handleUpvote={this.handleUpvote}
+                  upvoted={this.state.upvoted}
+                />
+                  {this.state.upvoteCount}
+              </div>
             </div>
           </div>
 
@@ -97,10 +100,10 @@ class ProjectCard extends React.Component {
                 </div> :
                 <div className='basic-flex-row'>
                   <Image src={this.props.project.profile.photo} size="tiny" avatar />
-                  <div className='basic-flex-column' style={{margin: '0'}}>
+                  <div className='basic-flex-centered-column' style={{margin: '0'}}>
                     By
                   </div>
-                  <div className='basic-flex-column'>
+                  <div className='basic-flex-centered-column'>
                     <Link to={`/profile/${this.props.project.profile.id}`}>
                       <p>{this.props.project.profile.display}</p>
                     </Link>
