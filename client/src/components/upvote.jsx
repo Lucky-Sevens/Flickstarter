@@ -14,7 +14,7 @@ const Upvote = (props) =>{
             onClick={props.handleUpvote}
           />
         }
-        content='Upvote project'
+        content='Undo upvote'
         position='left center'
       /> :
       <Popup
