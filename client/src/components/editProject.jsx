@@ -153,6 +153,10 @@ class EditProject extends React.Component {
   }
 
   componentDidMount() {
+<<<<<<< HEAD
+=======
+    let _this = this;
+>>>>>>> (feat) Add open roles to projects
     $.ajax({
       url: `/projects/${this.props.match.params.id}`,
       type: 'GET',

@@ -30,7 +30,11 @@ app.use('/editprofile', routes.editprofile);
 app.use('/projects', routes.projects);
 app.use('/messages', routes.messages);
 app.use('/followsUpvotes', routes.followsUpvotes);
+<<<<<<< HEAD
 app.use('/openRoles', routes.openRoles);
+=======
+// app.use('/openRoles', routes.openRoles);
+>>>>>>> (feat) Add open roles to projects
 // app.use('/userProjectContributions', routes.userProjectContributions);
 app.use('/api/youtubes', routes.youtubes);
 

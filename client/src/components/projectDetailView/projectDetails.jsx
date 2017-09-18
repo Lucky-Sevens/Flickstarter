@@ -26,12 +26,16 @@ class ProjectDetails extends React.Component {
     this.informer = this.informer.bind(this);
   }
 
+<<<<<<< HEAD
   informer(e) {
     let _this = this;
     _this.updateComponent();
   }
 
   updateComponent() {
+=======
+  componentDidMount() {
+>>>>>>> (feat) Add open roles to projects
     let _this = this;
     $.ajax({
       url: `/projects/${this.props.match.params.id}`,
