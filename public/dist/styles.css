@@ -113,6 +113,8 @@
 #featured-project-label {
   z-index: 1;
   font-size: 1.2rem;
+  background: #2185d0;
+  color: white;
 }
 
 #featured-project-segment {
