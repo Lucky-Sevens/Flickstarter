@@ -66,7 +66,6 @@ module.exports.create = (req, res) => {
     genre: req.body.genre
   }).save()
     .then((project) => {
-      console.log(project)
       if (req.body['projectRoles[]'] && typeof req.body['projectRoles[]'] === 'string') {
         return models.Role.where({position: req.body['projectRoles[]']}).fetch()
           .then(role => {
@@ -96,7 +95,6 @@ module.exports.create = (req, res) => {
 };
 
 module.exports.update = (req, res) => {
-  console.log(req.body);
   models.Project.where({id: req.params.id}).save(req.body, {method: 'update'})
     .then(() => {
       res.sendStatus(200).send('project has been updated');

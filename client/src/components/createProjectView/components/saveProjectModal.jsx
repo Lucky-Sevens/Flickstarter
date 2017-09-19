@@ -34,12 +34,11 @@ class SaveProjectModal extends React.Component {
               <div className='basic-flex-row' >
                 <div id='save-modal-media-container'>
                   <Image
-                    size='medium' 
                     shape='rounded' 
                     src={this.props.projectImage} 
                     style={{paddingBottom: '1rem'}}
                   />
-                  <div id='video-preview-container'>
+                  <div>
                     {
                       this.state.videoType === 'vimeo' ?
                       <Embed 

@@ -38,6 +38,7 @@ class EditProject extends React.Component {
     
     this.handleGenreSelection = this.handleGenreSelection.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
+    this.handleRoleSelection = this.handleRoleSelection.bind(this);
     this.getWarningMessage = this.getWarningMessage.bind(this);
     this.getUploadWidget = this.getUploadWidget.bind(this);
     this.handleSaveClick = this.handleSaveClick.bind(this);
@@ -55,6 +56,14 @@ class EditProject extends React.Component {
     event.preventDefault();
     this.setState({
       [event.target.name]: data.value,
+      incompleteField: false
+    });
+  }
+
+  handleRoleSelection(event, data) {
+    event.preventDefault();
+    this.setState({
+      projectRoles: data.value,
       incompleteField: false
     });
   }
@@ -101,6 +110,19 @@ class EditProject extends React.Component {
         incompleteField: true
       });
     }
+    $.ajax({
+      url: `/openRoles/update/${this.props.match.params.id}`,
+      type: 'POST',
+      data: {
+        openRoles: this.state.projectRoles
+      },
+      success: (data) => {
+        console.log(data);
+      },
+      error: (err) => {
+        console.log(err.statusText, err);
+      }
+    });
   }
 
   getWarningMessage() {
@@ -135,7 +157,6 @@ class EditProject extends React.Component {
       url: `/projects/${this.props.match.params.id}`,
       type: 'GET',
       success: (data) => {
-        console.log(data);
         this.setState({
           projectGenre: data.project.genre,
           projectTitle: data.project.name,
@@ -146,7 +167,8 @@ class EditProject extends React.Component {
           projectFundingGoal: data.project.goal_amount,
           projectImage: data.project.photo_url,
           projectVideo: data.project.video_url,
-          projectRoles: data.openRoles
+          projectRoles: data.openRoles,
+          projectId: data.project.id
         });
       },
       error: (err) => {

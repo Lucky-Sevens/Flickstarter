@@ -28,7 +28,7 @@ app.use('/editprofile', routes.editprofile);
 app.use('/projects', routes.projects);
 app.use('/messages', routes.messages);
 app.use('/followsUpvotes', routes.followsUpvotes);
-// app.use('/openRoles', routes.openRoles);
+app.use('/openRoles', routes.openRoles);
 // app.use('/userProjectContributions', routes.userProjectContributions);
 app.use('/api/youtubes', routes.youtubes);
 

@@ -341,6 +341,7 @@ i.thumbs.up.icon {
   display: flex;
   flex-direction: column;
   width: 60%;
+  padding-left: 2%;
 }
 
 #save-modal-media-container {
@@ -393,9 +394,5 @@ i.thumbs.up.icon {
 
 #upvote-button-clicked.ui.icon.button {
   padding: .6em .3em .78571429em;
-}
-
-#video-preview-container {
-  max-width: 300px;
 }
 
