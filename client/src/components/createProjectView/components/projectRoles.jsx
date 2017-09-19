@@ -7,7 +7,7 @@ const ProjectRoles = (props) => (
       <Header as='h4'>Open roles</Header>
     </div>
     <div className='project-detail-item-content-container'>
-      <Menu widths={1}>
+      <Menu widths={1} className='project-role-dropdown'>
         <Dropdown fluid multiple selection
           value={props.projectRoles}
           options={props.roleOptions} 

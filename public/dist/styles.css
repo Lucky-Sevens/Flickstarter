@@ -270,6 +270,9 @@ i.thumbs.up.icon {
   margin-bottom: 15px;
   padding-right: 15px;
 }
+.project-detail-item-content-container p {
+  padding-top: .5rem;
+}
 
 .project-detail-item-header-container {
   width: 24%;
@@ -319,6 +322,10 @@ i.thumbs.up.icon {
   font-size: 1.5rem;
   color: #626369;
   line-height: 2.4rem;
+}
+
+div.ui.one.item.project-role-dropdown.menu {
+  margin-bottom: 0;
 }
 
 .project-status-container {
