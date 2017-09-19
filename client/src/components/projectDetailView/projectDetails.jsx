@@ -1,9 +1,13 @@
 import React from 'react';
 import {Segment, Progress, Icon, Divider, Label} from 'semantic-ui-react';
 <<<<<<< HEAD
+<<<<<<< HEAD
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 =======
 >>>>>>> (feat) Add/remove open roles in Edit Project
+=======
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+>>>>>>> (feat) Display open roles on projectDetail page
 import $ from 'jquery';
 import {commafy, getDaysRemaining} from '../../helpers.js';
 
@@ -29,16 +33,12 @@ class ProjectDetails extends React.Component {
     this.informer = this.informer.bind(this);
   }
 
-<<<<<<< HEAD
   informer(e) {
     let _this = this;
     _this.updateComponent();
   }
 
   updateComponent() {
-=======
-  componentDidMount() {
->>>>>>> (feat) Add open roles to projects
     let _this = this;
     $.ajax({
       url: `/projects/${this.props.match.params.id}`,
@@ -93,7 +93,6 @@ class ProjectDetails extends React.Component {
               <h2> About this project </h2>
               {this.state.project.long_description}
             </div>
-<<<<<<< HEAD
             <Divider horizontal />
             {this.state.openRoles.length > 0 ?
               <div className='project-detail-about' >
@@ -110,16 +109,6 @@ class ProjectDetails extends React.Component {
               </div> : null
             }
             <Divider horizontal />
-=======
-            {this.state.openRoles.length > 0 ?
-              <div className='project-detail-about'>
-                <h2> Open roles </h2>
-                {this.state.openRoles.map(role => {
-                  <Label>role</Label>
-                })}
-              </div> : null
-            }
->>>>>>> (feat) Add/remove open roles in Edit Project
           </Segment>
         </div>
       </div>

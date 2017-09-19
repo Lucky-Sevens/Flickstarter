@@ -46,11 +46,7 @@ class ProjectCard extends React.Component {
           <Popup
             trigger={
               <div className='card-title edit-project-button'>
-<<<<<<< HEAD
                 <Link to={`/editproject/${this.props.project.id}`}>
-=======
-                <Link to={`/editproject/${this.props.id}`}>
->>>>>>> (feat) Add/remove open roles in Edit Project
                   <Icon circular inverted 
                     name='edit'
                   />
@@ -80,11 +76,7 @@ class ProjectCard extends React.Component {
 
           <Card.Header>
             <div id='project-card-content-container'>
-<<<<<<< HEAD
               <Link to={`/projects/${this.props.project.id}`}>
-=======
-              <Link to={`/projects/${this.props.id}`}>
->>>>>>> (feat) Add/remove open roles in Edit Project
                 <p>{this.props.project.name}</p>
               </Link>
             </div>
