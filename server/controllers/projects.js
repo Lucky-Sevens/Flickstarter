@@ -31,19 +31,24 @@ module.exports.getOne = (req, res) => {
       return models.OpenRole.where({project_id: project.id}).fetchAll()
     })
       .then(roles => {
+        console.log(roles);
         projectData.openRoles = [];
-        roles.forEach(role => {
-          return models.Role.where({id: role.attributes.open_role}).fetch()
-          .then(role => {
-            projectData.openRoles.push(role.attributes.position);
-            if (projectData.openRoles.length === roles.length) {
-              res.status(200).send(projectData);
-            }
+        if (roles.length > 0) {
+          roles.forEach(role => {
+            return models.Role.where({id: role.attributes.open_role}).fetch()
+            .then(role => {
+              projectData.openRoles.push(role.attributes.position);
+              if (projectData.openRoles.length === roles.length) {
+                res.status(200).send(projectData);
+              }
+            })
           })
-        })
+        } else {
+          res.status(200).send(projectData);
+        }
       })
     .error(err => {
-      res.status(500).send(err);
+      res.status(503).send(err);
     })
     .catch(() => {
       res.sendStatus(404);

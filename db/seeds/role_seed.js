@@ -7,7 +7,7 @@ exports.seed = function (knex, Promise) {
     {position: 'Composer'},
     {position: 'Designer'},
     {position: 'Director'},
-    {position: 'Editor'};
+    {position: 'Editor'},
     {position: 'Producer'},
-    {position: 'Screenwriter'}]),
+    {position: 'Screenwriter'}])
 };

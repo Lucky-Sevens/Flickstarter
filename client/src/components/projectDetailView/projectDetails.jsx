@@ -27,6 +27,7 @@ class ProjectDetails extends React.Component {
       url: `/projects/${this.props.match.params.id}`,
       type: 'GET',
       success: (data) => {
+        console.log(data);
         _this.setState({
           project: data.project,
           videoId: data.project.video_url.includes('vimeo') ? data.project.video_url.substr(data.project.video_url.length - 9) : data.project.video_url.substr(data.project.video_url.length - 11),
