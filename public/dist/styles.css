@@ -151,7 +151,6 @@ h2 {
   padding-top: 10px;
 }
 
-<<<<<<< HEAD
 i.edit.circular.inverted.icon {
   background-color: rgba(33, 133, 208, .8)!important;
   font-size: 1.2rem;
@@ -159,15 +158,8 @@ i.edit.circular.inverted.icon {
   padding-top: .56em!important;
 }
 
-=======
->>>>>>> (feat) Add open roles to projects
 i.thumbs.up.icon {
   font-size: 1.3em;
-}
-
-i.edit.circular.inverted.icon {
-  background-color: rgba(33, 133, 208, .8)!important;
-  font-size: 1.2rem;
 }
 
 .iFrame {

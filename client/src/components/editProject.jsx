@@ -154,13 +154,20 @@ class EditProject extends React.Component {
 
   componentDidMount() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     let _this = this;
 >>>>>>> (feat) Add open roles to projects
+=======
+>>>>>>> (feat) Add/remove open roles in Edit Project
     $.ajax({
       url: `/projects/${this.props.match.params.id}`,
       type: 'GET',
       success: (data) => {
+<<<<<<< HEAD
+=======
+        console.log(data);
+>>>>>>> (feat) Add/remove open roles in Edit Project
         this.setState({
           projectGenre: data.project.genre,
           projectTitle: data.project.name,
@@ -171,8 +178,12 @@ class EditProject extends React.Component {
           projectFundingGoal: data.project.goal_amount,
           projectImage: data.project.photo_url,
           projectVideo: data.project.video_url,
+<<<<<<< HEAD
           projectRoles: data.openRoles,
           projectId: data.project.id
+=======
+          projectRoles: data.openRoles
+>>>>>>> (feat) Add/remove open roles in Edit Project
         });
       },
       error: (err) => {

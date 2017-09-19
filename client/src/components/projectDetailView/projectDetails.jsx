@@ -1,6 +1,9 @@
 import React from 'react';
 import {Segment, Progress, Icon, Divider, Label} from 'semantic-ui-react';
+<<<<<<< HEAD
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
+=======
+>>>>>>> (feat) Add/remove open roles in Edit Project
 import $ from 'jquery';
 import {commafy, getDaysRemaining} from '../../helpers.js';
 
@@ -90,6 +93,7 @@ class ProjectDetails extends React.Component {
               <h2> About this project </h2>
               {this.state.project.long_description}
             </div>
+<<<<<<< HEAD
             <Divider horizontal />
             {this.state.openRoles.length > 0 ?
               <div className='project-detail-about' >
@@ -106,6 +110,16 @@ class ProjectDetails extends React.Component {
               </div> : null
             }
             <Divider horizontal />
+=======
+            {this.state.openRoles.length > 0 ?
+              <div className='project-detail-about'>
+                <h2> Open roles </h2>
+                {this.state.openRoles.map(role => {
+                  <Label>role</Label>
+                })}
+              </div> : null
+            }
+>>>>>>> (feat) Add/remove open roles in Edit Project
           </Segment>
         </div>
       </div>
