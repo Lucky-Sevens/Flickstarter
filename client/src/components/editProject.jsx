@@ -165,9 +165,12 @@ class EditProject extends React.Component {
       type: 'GET',
       success: (data) => {
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         console.log(data);
 >>>>>>> (feat) Add/remove open roles in Edit Project
+=======
+>>>>>>> (feat) Add controller/route for updating open roles on Edit Projects page
         this.setState({
           projectGenre: data.project.genre,
           projectTitle: data.project.name,
@@ -179,11 +182,16 @@ class EditProject extends React.Component {
           projectImage: data.project.photo_url,
           projectVideo: data.project.video_url,
 <<<<<<< HEAD
+<<<<<<< HEAD
           projectRoles: data.openRoles,
           projectId: data.project.id
 =======
           projectRoles: data.openRoles
 >>>>>>> (feat) Add/remove open roles in Edit Project
+=======
+          projectRoles: data.openRoles,
+          projectId: data.project.id
+>>>>>>> (feat) Add controller/route for updating open roles on Edit Projects page
         });
       },
       error: (err) => {

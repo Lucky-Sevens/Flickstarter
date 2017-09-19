@@ -31,10 +31,14 @@ app.use('/projects', routes.projects);
 app.use('/messages', routes.messages);
 app.use('/followsUpvotes', routes.followsUpvotes);
 <<<<<<< HEAD
+<<<<<<< HEAD
 app.use('/openRoles', routes.openRoles);
 =======
 // app.use('/openRoles', routes.openRoles);
 >>>>>>> (feat) Add open roles to projects
+=======
+app.use('/openRoles', routes.openRoles);
+>>>>>>> (feat) Add controller/route for updating open roles on Edit Projects page
 // app.use('/userProjectContributions', routes.userProjectContributions);
 app.use('/api/youtubes', routes.youtubes);
 
