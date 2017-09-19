@@ -1,5 +1,6 @@
 import React from 'react';
 import {Segment, Progress, Icon, Divider, Label} from 'semantic-ui-react';
+import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
 import $ from 'jquery';
 import {commafy, getDaysRemaining} from '../../helpers.js';
 import ProjectDetailHeader from './components/projectDetailHeader.jsx';
@@ -68,14 +69,22 @@ class ProjectDetails extends React.Component {
               <h2> About this project </h2>
               {this.state.project.long_description}
             </div>
+            <Divider horizontal />
             {this.state.openRoles.length > 0 ?
-              <div className='project-detail-about'>
+              <div className='project-detail-about' >
                 <h2> Open roles </h2>
-                {this.state.openRoles.map(role => {
-                  <Label>role</Label>
-                })}
+                {this.state.openRoles.map((role, index) => 
+                  <Label key={index}>{role}</Label>
+                )}
+                <br/>
+                Contact 
+                <Link to={`/profile/${this.state.project.profile.id}`}>
+                  {' ' + this.state.project.profile.display + ' '}
+                </Link>
+                if you are insterested in helping with this project.
               </div> : null
             }
+            <Divider horizontal />
           </Segment>
         </div>
       </div>

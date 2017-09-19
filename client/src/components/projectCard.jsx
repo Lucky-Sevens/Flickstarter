@@ -46,7 +46,7 @@ class ProjectCard extends React.Component {
           <Popup
             trigger={
               <div className='card-title edit-project-button'>
-                <Link to={`/editproject/${this.props.id}`}>
+                <Link to={`/editproject/${this.props.project.id}`}>
                   <Icon circular inverted 
                     name='edit'
                   />
@@ -76,7 +76,7 @@ class ProjectCard extends React.Component {
 
           <Card.Header>
             <div id='project-card-content-container'>
-              <Link to={`/projects/${this.props.id}`}>
+              <Link to={`/projects/${this.props.project.id}`}>
                 <p>{this.props.project.name}</p>
               </Link>
             </div>
