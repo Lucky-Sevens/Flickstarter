@@ -31,6 +31,7 @@ module.exports.getOne = (req, res) => {
       return models.OpenRole.where({project_id: project.id}).fetchAll()
     })
       .then(roles => {
+        console.log(roles);
         projectData.openRoles = [];
         if (roles.length > 0) {
           roles.forEach(role => {

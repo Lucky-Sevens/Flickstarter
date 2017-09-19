@@ -7,13 +7,7 @@ exports.seed = function (knex, Promise) {
     {position: 'Composer'},
     {position: 'Designer'},
     {position: 'Director'},
-<<<<<<< HEAD
     {position: 'Editor'},
     {position: 'Producer'},
     {position: 'Screenwriter'}])
-=======
-    {position: 'Editor'};
-    {position: 'Producer'},
-    {position: 'Screenwriter'}]),
->>>>>>> (feat) Add open roles to projects
 };
