@@ -151,13 +151,15 @@ h2 {
   padding-top: 10px;
 }
 
-i.thumbs.up.icon {
-  font-size: 1.3em;
-}
-
 i.edit.circular.inverted.icon {
   background-color: rgba(33, 133, 208, .8)!important;
   font-size: 1.2rem;
+  padding-left: .55em!important;
+  padding-top: .56em!important;
+}
+
+i.thumbs.up.icon {
+  font-size: 1.3em;
 }
 
 .iFrame {

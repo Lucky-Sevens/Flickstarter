@@ -11,6 +11,7 @@ import ProjectBlurb from './createProjectView/components/projectBlurb.jsx';
 import ProjectDescription from './createProjectView/components/projectDescription.jsx';
 import ProjectGenre from './createProjectView/components/projectGenre.jsx';
 import ProjectLocation from './createProjectView/components/projectLocation.jsx';
+import ProjectRoles from './createProjectView/components/projectRoles.jsx';
 import ProjectDeadline from './createProjectView/components/projectDeadline.jsx';
 import ProjectFundingGoal from './createProjectView/components/projectFundingGoal.jsx';
 import SaveProjectModal from './createProjectView/components/saveProjectModal.jsx';
@@ -28,6 +29,8 @@ class EditProject extends React.Component {
       projectFundingGoal: '',
       projectImage: '',
       projectVideo: '',
+      projectRoles: [],
+      roleOptions: [],
       incompleteField: false,
       saving: false,
       showSaveModal: false
@@ -128,26 +131,36 @@ class EditProject extends React.Component {
   }
 
   componentDidMount() {
-    let _this = this;
     $.ajax({
-      url: `/projects/${_this.props.match.params.id}`,
+      url: `/projects/${this.props.match.params.id}`,
       type: 'GET',
       success: (data) => {
-        _this.setState({
-          projectGenre: data.genre,
-          projectTitle: data.name,
-          projectLocation: data.location,
-          projectDeadline: data.goal_deadline,
-          projectBlurb: data.short_description,
-          projectDescription: data.long_description,
-          projectFundingGoal: data.goal_amount,
-          projectImage: data.photo_url,
-          projectVideo: data.video_url
+        console.log(data);
+        this.setState({
+          projectGenre: data.project.genre,
+          projectTitle: data.project.name,
+          projectLocation: data.project.location,
+          projectDeadline: data.project.goal_deadline,
+          projectBlurb: data.project.short_description,
+          projectDescription: data.project.long_description,
+          projectFundingGoal: data.project.goal_amount,
+          projectImage: data.project.photo_url,
+          projectVideo: data.project.video_url,
+          projectRoles: data.openRoles
         });
       },
       error: (err) => {
         console.log(err.statusText, err);
       }
+    });
+    $.get('/editprofile/getroles', data => {
+      let options = [];
+      data.map(role => {
+        options.push({key: role.id, text: role.position, value: role.position});
+      });
+      this.setState({
+        roleOptions: options
+      });
     });
   }
 
@@ -202,6 +215,11 @@ class EditProject extends React.Component {
             <ProjectLocation 
               handleProjectLocationInput={this.handleInputChange} 
               projectLocation={this.state.projectLocation}
+            />
+            <ProjectRoles 
+              handleRoleSelection={this.handleRoleSelection}
+              projectRoles={this.state.projectRoles}
+              roleOptions={this.state.roleOptions}
             />
             <ProjectDeadline 
               projectDeadline={this.state.projectDeadline}

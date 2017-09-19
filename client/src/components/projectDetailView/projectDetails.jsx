@@ -1,5 +1,5 @@
 import React from 'react';
-import {Segment, Progress, Icon, Divider} from 'semantic-ui-react';
+import {Segment, Progress, Icon, Divider, Label} from 'semantic-ui-react';
 import $ from 'jquery';
 import {commafy, getDaysRemaining} from '../../helpers.js';
 import ProjectDetailHeader from './components/projectDetailHeader.jsx';
@@ -15,7 +15,8 @@ class ProjectDetails extends React.Component {
       daysRemaining: '',
       videoId: '',
       raisedAmount: '',
-      goalAmount: ''
+      goalAmount: '',
+      openRoles: []
     };
   }
 
@@ -26,12 +27,13 @@ class ProjectDetails extends React.Component {
       type: 'GET',
       success: (data) => {
         _this.setState({
-          project: data,
-          videoId: data.video_url.includes('vimeo') ? data.video_url.substr(data.video_url.length - 9) : data.video_url.substr(data.video_url.length - 11),
-          videoType: data.video_url.includes('vimeo') ? 'vimeo' : 'youtube',
-          daysRemaining: getDaysRemaining(data),
-          raisedAmount: commafy(data.raised_amount),
-          goalAmount: commafy(data.goal_amount)
+          project: data.project,
+          videoId: data.project.video_url.includes('vimeo') ? data.project.video_url.substr(data.project.video_url.length - 9) : data.project.video_url.substr(data.project.video_url.length - 11),
+          videoType: data.project.video_url.includes('vimeo') ? 'vimeo' : 'youtube',
+          daysRemaining: getDaysRemaining(data.project),
+          raisedAmount: commafy(data.project.raised_amount),
+          goalAmount: commafy(data.project.goal_amount),
+          openRoles: data.openRoles
         });
       },
       error: (err) => {
@@ -66,6 +68,14 @@ class ProjectDetails extends React.Component {
               <h2> About this project </h2>
               {this.state.project.long_description}
             </div>
+            {this.state.openRoles.length > 0 ?
+              <div className='project-detail-about'>
+                <h2> Open roles </h2>
+                {this.state.openRoles.map(role => {
+                  <Label>role</Label>
+                })}
+              </div> : null
+            }
           </Segment>
         </div>
       </div>

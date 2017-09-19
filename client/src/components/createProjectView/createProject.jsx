@@ -30,7 +30,7 @@ class CreateProject extends React.Component {
       projectImage: '',
       projectVideo: '',
       projectId: '',
-      roles: [],
+      roleOptions: [],
       currentPage: 'start',
       incompleteField: false,
       saving: false,
@@ -167,7 +167,7 @@ class CreateProject extends React.Component {
         options.push({key: role.id, text: role.position, value: role.position});
       });
       this.setState({
-        roles: options
+        roleOptions: options
       });
     });
   }
@@ -229,7 +229,7 @@ class CreateProject extends React.Component {
             <ProjectRoles 
               handleRoleSelection={this.handleRoleSelection}
               projectRoles={this.state.projectRoles}
-              roleOptions={this.state.roles}
+              roleOptions={this.state.roleOptions}
             />
             <ProjectDuration handleProjectDurationInput={this.handleInputChange}/>
             <ProjectFundingGoal handleFundingGoalInput={this.handleInputChange}/>

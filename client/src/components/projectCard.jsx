@@ -42,19 +42,21 @@ class ProjectCard extends React.Component {
     return (
       <Card fluid raised>
         <Image fluid src={this.props.project.photo_url}/>
-        <Popup
-          trigger={
-            <div className='card-title edit-project-button'>
-              <Link to={`/editproject/${this.props.id}`}>
-                <Icon circular inverted 
-                  name='edit'
-                />
-              </Link>
-            </div>
-          }
-          content='Edit your project'
-          position='left center'
-        />
+        {this.props.pathName === '/profile' ?
+          <Popup
+            trigger={
+              <div className='card-title edit-project-button'>
+                <Link to={`/editproject/${this.props.id}`}>
+                  <Icon circular inverted 
+                    name='edit'
+                  />
+                </Link>
+              </div>
+            }
+            content='Edit your project'
+            position='left center'
+          /> : null
+        }
         <Card.Content >
           <div className='card-genre-upvotes'>
             <div>
@@ -73,19 +75,11 @@ class ProjectCard extends React.Component {
           </div>
 
           <Card.Header>
-            {this.props.pathName === '/profile' ?
-              <div id='project-card-content-container'>
-                <Link to={`/projects/${this.props.id}`}>
-                  <p>{this.props.project.name}</p>
-                </Link>
-                
-              </div> : 
-              <div id='project-card-content-container'>
-                <Link to={`/projects/${this.props.project.id}`}>
-                  <p>{this.props.project.name}</p>
-                </Link>
-              </div>
-            }
+            <div id='project-card-content-container'>
+              <Link to={`/projects/${this.props.id}`}>
+                <p>{this.props.project.name}</p>
+              </Link>
+            </div>
           </Card.Header>
 
           <Card.Description style={{margin: '0'}}>

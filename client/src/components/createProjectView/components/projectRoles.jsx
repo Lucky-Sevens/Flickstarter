@@ -9,8 +9,8 @@ const ProjectRoles = (props) => (
     <div className='project-detail-item-content-container'>
       <Menu widths={1}>
         <Dropdown fluid multiple selection
-          defaultValue={props.projectRoles}
-          options={roleOptions} 
+          value={props.projectRoles}
+          options={props.roleOptions} 
           onChange={props.handleRoleSelection}
           scrolling={true}
           placeholder='Select roles'

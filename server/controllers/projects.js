@@ -21,13 +21,27 @@ module.exports.getAll = (req, res) => {
 };
 
 module.exports.getOne = (req, res) => {
+  let projectData = {};
   models.Project.where({id: req.params.id}).fetch({withRelated: ['profile']})
     .then(project => {
       if (!project) {
         throw project;
       }
-      res.status(200).send(project);
+      projectData.project = project;
+      return models.OpenRole.where({project_id: project.id}).fetchAll()
     })
+      .then(roles => {
+        projectData.openRoles = [];
+        roles.forEach(role => {
+          return models.Role.where({id: role.attributes.open_role}).fetch()
+          .then(role => {
+            projectData.openRoles.push(role.attributes.position);
+            if (projectData.openRoles.length === roles.length) {
+              res.status(200).send(projectData);
+            }
+          })
+        })
+      })
     .error(err => {
       res.status(500).send(err);
     })
