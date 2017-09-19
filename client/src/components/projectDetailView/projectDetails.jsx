@@ -1,13 +1,6 @@
 import React from 'react';
 import {Segment, Progress, Icon, Divider, Label} from 'semantic-ui-react';
-<<<<<<< HEAD
-<<<<<<< HEAD
 import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
-=======
->>>>>>> (feat) Add/remove open roles in Edit Project
-=======
-import {BrowserRouter as Router, Link, Route} from 'react-router-dom';
->>>>>>> (feat) Display open roles on projectDetail page
 import $ from 'jquery';
 import {commafy, getDaysRemaining} from '../../helpers.js';
 

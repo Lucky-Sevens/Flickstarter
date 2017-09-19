@@ -105,6 +105,9 @@ class SaveProjectModal extends React.Component {
             <Button as={Link} to={'/'} color='blue' basic>
               <Icon name='home' /> Home
             </Button>
+            <Button as={Link} to={`/projects/${this.props.projectId}`} color='blue' basic>
+              <Icon name='video camera' /> View project
+            </Button>
             <Link to={`/editproject/${this.props.projectId}`}>
               <Button basic
                 color='blue'
@@ -115,7 +118,6 @@ class SaveProjectModal extends React.Component {
             </Link>
           </Modal.Actions>
         </Modal>
-        <Route path='/' component={Home} />
       </div>
     );
   }

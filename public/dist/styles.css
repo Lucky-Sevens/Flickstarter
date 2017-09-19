@@ -376,6 +376,10 @@ div.ui.one.item.project-role-dropdown.menu {
   align-items: left;
 }
 
+.ui.modal .actions>.button {
+  margin-left: 0;
+}
+
 #upvote-button {
   opacity: 1;
   background: white;
