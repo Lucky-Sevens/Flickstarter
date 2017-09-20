@@ -1,5 +1,5 @@
 import React from 'react';
-import {Progress, Icon} from 'semantic-ui-react';
+import {Progress, Icon, Segment} from 'semantic-ui-react';
 import SupportModal from '../../supportModal.jsx';
 
 const ProjectDetailStatus = (props) => {
@@ -26,7 +26,7 @@ const ProjectDetailStatus = (props) => {
             You contributed <p>${props.userContribution.contribution}</p>
           </div>
         </div> :
-        <SupportModal className='project-detail-support-modal'
+        <SupportModal
           project={props.project} 
           informer={props.informer}
         />

@@ -49,7 +49,7 @@ exports.seed = function (knex, Promise) {
       email: 'garybolatovthesnitch@gmail.com',
       username: 'garybolatovthesnitch',
       about: 'In the 2006 mockumentary film, Gary attends a Pentecostal church service and later converts his entire village to Christianity. He greatly admires the political views of Joseph Stalin, and claims that both he and Stalin are strong men.',
-      photo: '',
+      photo: 'http://res.cloudinary.com/dyrrwpemp/image/upload/v1505863921/oraywsbvlpatsqqyxkrj.jpg',
       linkedin: 'www.linkedin.com/garybolatovthesnitch',
       personalsite: 'www.garybolatovthesnitch.com',
       location: 'Kazakhstan',
