@@ -5,7 +5,7 @@ import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/main.css';
 import 'react-responsive-carousel/lib/styles/carousel.css';
 
-import OverallStats from './OverallStats.jsx';
+import OverallStats from './overallStats.jsx';
 
 
 class Welcome extends React.Component {

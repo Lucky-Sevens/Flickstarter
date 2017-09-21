@@ -8,49 +8,10 @@ import ProjectPreview from './projectPreview.jsx';
 import Footer from './footer.jsx';
 import Welcome from './welcome.jsx';
 import OverallStats from './overallStats.jsx';
+import { getDaysRemaining } from '../helpers.js';
 
 const KEYS_TO_FILTERS = ['name', 'short_description', 'long_description', 'location'];
 const colors = ['yellow', 'red', 'blue', 'green', 'black', 'pink', 'grey', 'purple', 'teal', 'orange', 'brown'];
-
-
-class Home extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      projects: [],
-      searchTerm: '',
-      filterTerm: null,
-      userUpvotes: [],
-      // totalDollars: '',
-      // totalBackers: '',
-      // totalProjects: ''
-    };
-
-    // this.getTotalDollars = this.getTotalDollars.bind(this);
-  }
-
-  componentDidMount() {
-    $.ajax({
-      method: 'GET',
-      url: '/projects',
-      success: (projectData) => {
-        console.log(projectData.projects);
-        this.setState({
-          projects: projectData.projects,
-          userUpvotes: projectData.userUpvotes,
-        });
-      },
-      error: function () {
-        console.log('error fetching projects!');
-      }
-    });
-  }
-
-  getSelected(e, {value}) {
-    this.setState({filterTerm: value});
-  }
-
-  render() {
 const itemOpts = [
   { key: 1,
     text: 'Action',
@@ -109,6 +70,55 @@ const itemOpts = [
   }
 ];
 
+class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      projects: [],
+      searchTerm: '',
+      filterTerm: null,
+      userUpvotes: [],
+      featuredProject: {},
+      featuredProjectCreatorDisplayName: '',
+      featuredProjectPercentFunded: '',
+      featuredProjectBackers: 0,
+      featuredProjectDaysRemaining: 0
+      // totalDollars: '',
+      // totalBackers: '',
+      // totalProjects: ''
+    };
+
+    // this.getTotalDollars = this.getTotalDollars.bind(this);
+  }
+
+  componentDidMount() {
+    $.ajax({
+      method: 'GET',
+      url: '/projects',
+      success: (projectData) => {
+        console.log(projectData.projects);
+        this.setState({
+          projects: projectData.projects,
+          userUpvotes: projectData.userUpvotes,
+          featuredProject: projectData.projects[0],
+          featuredProjectCreatorDisplayName: projectData.projects[0].profile.display,
+          featuredProjectPercentFunded: Math.round(100 * (projectData.projects[0].raised_amount / projectData.projects[0].goal_amount)).toString(),
+          featuredProjectBackers: projectData.projects[0].contributions.length,
+          featuredProjectDaysRemaining: getDaysRemaining(projectData.projects[0])
+        });
+      },
+      error: function () {
+        console.log('error fetching projects!');
+      }
+    });
+  }
+
+  getSelected(e, {value}) {
+    this.setState({filterTerm: value});
+  }
+
+  render() {
+
     let filteredMovies = this.state.projects.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
     filteredMovies = this.state.filterTerm ? this.state.projects.filter(project => project.genre === this.state.filterTerm) : filteredMovies;
 
@@ -119,7 +129,13 @@ const itemOpts = [
       <div id='home-body-container'>
         <Segment style={{paddingTop: '-2%'}}>
           <Grid columns={1} padded>
-            <FeaturedProject />
+            <FeaturedProject 
+              project={this.state.featuredProject}
+              featuredProjectCreatorDisplayName={this.state.featuredProjectCreatorDisplayName}
+              featuredProjectPercentFunded={this.state.featuredProjectPercentFunded}
+              featuredProjectBackers={this.state.featuredProjectBackers}
+              featuredProjectDaysRemaining={this.state.featuredProjectDaysRemaining}
+            />
           </Grid>
         </Segment>
         <Segment>
@@ -136,7 +152,7 @@ const itemOpts = [
               />
             </div>
           </div>
-          <ProjectPreview projects={filteredMovies} userUpvotes={this.state.userUpvotes} />
+          <ProjectPreview projects={this.state.projects.slice(1)} userUpvotes={this.state.userUpvotes} />
         </Segment>
         <Footer />
       </div>
