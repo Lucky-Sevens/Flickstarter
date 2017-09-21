@@ -5,8 +5,6 @@ import { Tab, Form, TextArea, Modal, Embed, Label, Grid, Header, Container, Divi
 import ProjectCard from '../projectCard.jsx';
 import moment from 'moment';
 import SendMessage from './components/sendMessage.jsx';
-
-
 class Profile extends React.Component {
   constructor(props) {
     super(props);
@@ -34,7 +32,6 @@ class Profile extends React.Component {
     this.submitMessage = this.submitMessage.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
-
   componentDidMount() {
     $.get(`${this.props.location.pathname}/u`, data => {
       this.setState({
@@ -55,8 +52,6 @@ class Profile extends React.Component {
       });
     });
   }
-
-
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.location.pathname !== this.props.location.pathname) {
       $.get(`${this.props.location.pathname}/u`, data => {
@@ -77,7 +72,6 @@ class Profile extends React.Component {
       });
     }
   }
-
   getVideoId (url) {
     const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
     const match = url.match(regExp);
@@ -87,7 +81,6 @@ class Profile extends React.Component {
       return 'error';
     }
   }
-
   submitMessage(event) {
     $.post('/messages/send',
       {receiver: this.state.fullProfile.id,
@@ -103,16 +96,12 @@ class Profile extends React.Component {
       }
     );
   }
-
-
   handleChange(event, data) {
     event.preventDefault();
     this.setState({
       [data.name]: data.value
     });
   }
-
-
   render() {
     return (
       <div className="page-header-padding">
@@ -146,15 +135,15 @@ class Profile extends React.Component {
             </Container>
           </Grid.Row>
           <Divider/>
-          <Grid.Row >
-            <Tab menu={{ secondary: true, pointing: true }} style={{width: '50%'}} panes={[
+          <Grid.Row>
+            <Tab menu={{ secondary: true, pointing: true }} panes={[
               {menuItem: 'Projects Created', render: () => <Tab.Pane attached={false}>
                 {this.state.projects.map((project, index) =>
                   <ProjectCard
                     pathName={this.props.location.pathname}
                     key={index}
                     project={project}
-                    profilePage={this.state.first}
+                    profilePage={this.state.fullProfile.id}
                     creatorName={this.state.first + ' ' + this.state.last}
                     photo={this.state.photo}
                     profile={this.state.fullProfile}
@@ -196,5 +185,4 @@ class Profile extends React.Component {
     );
   }
 }
-
 export default Profile;

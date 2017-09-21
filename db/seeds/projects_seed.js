@@ -14,7 +14,7 @@ exports.seed = function (knex, Promise) {
       raised_amount: 0,
       creator_id: 1,
       genre: 'Action'},
-    {name: 'Anxiety\'s Wilma:',
+    {name: 'Anxiety\'s Wilma',
       short_description: 'A short romantic comedy about a young woman and her anxiety.',
       long_description: 'I wrote ANXIETY\'S WILMA after watching a series of romantic short films that helped relieve me of some crippling anxiety.  I understand that a short film can\'t magically fix mental health issues, but I do believe the way we talk about/represent mental health plays a big part in how we learn to take care of ourselves. My intent with this short film is to romanticize anxiety for people who struggle with it so that at the very least anxiety starts to feel less like the monster under the bed and more like someone we can get to know. ANXIETY\'S WILMA is about a young woman who gets an opportunity to communicate with her anxiety only to discover that her anxiety needs something from her.',
       location: 'San Francisco, CA',
