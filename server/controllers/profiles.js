@@ -1,5 +1,4 @@
 const models = require('../../db/models');
-
 module.exports.getAll = (req, res) => {
   models.Profile.fetchAll()
     .then(profiles => {
@@ -10,7 +9,6 @@ module.exports.getAll = (req, res) => {
       res.status(503).send(err);
     });
 };
-
 module.exports.getOne = (req, res) => {
   let fullProfile = {};
   models.Profile.where({id: req.params.id}).fetch({withRelated: ['roles', 'contributions']})
@@ -49,8 +47,6 @@ module.exports.getOne = (req, res) => {
       res.status(500).send('Could not retrieve data');
     });
 };
-
-
 module.exports.getOwn = (req, res, next) => {
   let fullProfile = {};
   models.Profile.where({id: req.user.id}).fetch({withRelated: ['roles', 'contributions']})
@@ -89,7 +85,6 @@ module.exports.getOwn = (req, res, next) => {
       res.status(500).send('Could not retrieve data');
     });
 };
-
 module.exports.updateTotalContributions = (req, res) => {
   models.Profile.where({ id: req.params.id }).fetch()
     .then(profile => {
@@ -108,7 +103,6 @@ module.exports.updateTotalContributions = (req, res) => {
       res.sendStatus(404);
     });
 };
-
 // module.exports.deleteOne = (req, res) => {
 //   models.Profile.where({ id: req.params.id }).fetch()
 //     .then(profile => {
