@@ -125,8 +125,8 @@ class Home extends React.Component {
     return (
       <div>
       <div><Welcome /></div>
-      <OverallStats />
       <div id='home-body-container'>
+        <OverallStats />
         <Segment style={{paddingTop: '-2%'}}>
           <Grid columns={1} padded>
             <FeaturedProject 
