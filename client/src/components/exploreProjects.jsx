@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import { Grid, Segment, Header, Dropdown, Button } from 'semantic-ui-react';
+import { Grid, Segment, Header, Dropdown, Button, Input, Icon } from 'semantic-ui-react';
 
 import ProjectPreview from './projectPreview.jsx';
 import SearchInput, { createFilter } from 'react-search-input';
@@ -123,8 +123,13 @@ class ExploreProjects extends React.Component {
     return (
       <div style={{ width: '94%', margin: '2% 0% 0% 3%', paddingTop: '55px' }}>
 
-        Search projects:
-        <SearchInput className="search-input" onChange={this.searchUpdated.bind(this)} />
+        <Input
+          size='massive'
+          icon={<Icon name='search' inverted circular />}
+          placeholder='Search...'
+        >
+          <SearchInput className="search-input" onChange={this.searchUpdated.bind(this)} />
+        </Input>
 
         <Segment>
           <div style={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', marginLeft: '2%', marginRight: '2%' }}>

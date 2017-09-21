@@ -3,9 +3,9 @@
 
 
 // const tagOptions = [
-//   { key: 1,
+//   { key: 1
 //     text: 'Action',
-//     value: 'Action',
+//     value: 'Action
 //     label: { color: 'red', empty: true, circular: true },
 //   },
 //   { key: 2,
