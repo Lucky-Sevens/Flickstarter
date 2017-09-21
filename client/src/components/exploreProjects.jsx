@@ -1,6 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
-import { Grid, Segment, Header, Dropdown } from 'semantic-ui-react';
+import { Grid, Segment, Header, Dropdown, Button } from 'semantic-ui-react';
 
 import ProjectPreview from './projectPreview.jsx';
 import SearchInput, { createFilter } from 'react-search-input';
@@ -103,6 +103,10 @@ class ExploreProjects extends React.Component {
     this.setState({filterTerm: value});
   }
 
+  handleReset() {
+    this.setState({filterTerm: null});
+  }
+
   render() {
     const tagOptions = this.state.projects.concat({genre: null}).map(project => {
       return {
@@ -128,6 +132,10 @@ class ExploreProjects extends React.Component {
               <h3> Explore Projects </h3>
             </div>
             <div>
+
+              <Button onClick={this.handleReset.bind(this)}>
+                Reset
+              </Button>
 
               <Dropdown
                 onChange={this.getSelected.bind(this)}

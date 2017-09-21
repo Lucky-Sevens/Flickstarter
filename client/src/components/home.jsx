@@ -32,7 +32,6 @@ class Home extends React.Component {
       // totalProjects: ''
     };
 
-    // this.getTotalDollars = this.getTotalDollars.bind(this);
   }
 
   componentDidMount() {
@@ -57,15 +56,8 @@ class Home extends React.Component {
     });
   }
 
-  getSelected(e, {value}) {
-    this.setState({filterTerm: value});
-  }
 
   render() {
-
-    let filteredMovies = this.state.projects.filter(createFilter(this.state.searchTerm, KEYS_TO_FILTERS));
-    filteredMovies = this.state.filterTerm ? this.state.projects.filter(project => project.genre === this.state.filterTerm) : filteredMovies;
-
     return (
       <div>
       <div><Welcome /></div>
@@ -86,14 +78,6 @@ class Home extends React.Component {
           <div id='trending-projects-header-container'>
             <div className='basic-flex-centered-column'>
               <h3> Trending Projects </h3>
-            </div>
-            <div>
-              <Dropdown
-                onChange={this.getSelected.bind(this)}
-                options={itemOpts}
-                selection
-                text='Filter Posts' icon='filter' floating labeled button className='icon'
-              />
             </div>
           </div>
           <ProjectPreview projects={this.state.projects.slice(1)} userUpvotes={this.state.userUpvotes} />
