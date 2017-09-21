@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Image, Segment, Icon, Header, Label} from 'semantic-ui-react';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
 import FeaturedProjectStatus from './featuredProjectStatus.jsx';
 import SupportModal from './supportModal.jsx';
-import { getDaysRemaining } from '../helpers.js';
 
 class FeaturedProject extends React.Component {
   constructor(props) {
@@ -32,9 +32,12 @@ class FeaturedProject extends React.Component {
             <div id='featured-project-content-container'>
               <Header as='h2'>{this.props.project.name}
                 <Header.Subheader>
-                  <Link to={`/allprojects/${this.props.project.id}`}>
-                    By {this.props.project.profile.display}
-                  </Link>
+                  <div className='basic-flex-row'>
+                    By 
+                    <Link to={`/allprojects/${this.props.project.id}`} style={{paddingLeft: '4px'}}>
+                      {this.props.featuredProjectCreatorDisplayName}
+                    </Link>
+                  </div>
                 </Header.Subheader>
               </Header>
               <p>{this.props.project.short_description}</p>
@@ -52,9 +55,9 @@ class FeaturedProject extends React.Component {
               </div>
               <FeaturedProjectStatus 
                 contributed={this.props.project.raised_amount}
-                backers={this.props.project.contributions.length}
-                daysRemaining={getDaysRemaining(this.props.project)}
-                percentFunded={Math.round(100 * (this.props.project.raised_amount / this.props.project.goal_amount)).toString()}
+                backers={this.props.featuredProjectBackers}
+                daysRemaining={this.props.featuredProjectDaysRemaining}
+                percentFunded={this.props.featuredProjectPercentFunded}
               />
             </div>
             <div id='featured-project-contribute-button-container'>
