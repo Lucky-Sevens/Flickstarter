@@ -123,12 +123,9 @@ class ExploreProjects extends React.Component {
     return (
       <div style={{ width: '94%', margin: '2% 0% 0% 3%', paddingTop: '55px' }}>
 
-        <Input
-          size='massive'
-          icon={<Icon name='search' inverted circular />}
-          placeholder='Search...'
-        >
-          <SearchInput className="search-input" onChange={this.searchUpdated.bind(this)} />
+        <Icon name='search' size='large' />
+        <Input size='medium'>
+          <SearchInput className=".search-input" onChange={this.searchUpdated.bind(this)} />
         </Input>
 
         <Segment>
