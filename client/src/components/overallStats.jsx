@@ -1,6 +1,7 @@
 import React from 'react';
 import $ from 'jquery';
 import { Container, Segment, Statistic } from 'semantic-ui-react';
+import {commafy} from '../helpers.js';
 
 class OverallStats extends React.Component {
   constructor(props) {
@@ -28,7 +29,7 @@ class OverallStats extends React.Component {
         let totalProjects = data.projects.length;
 
         this.setState({
-          totalDollars: totalContributions,
+          totalDollars: '$' + commafy(totalContributions),
           totalProjects: data.projects.length,
           totalBackers: totalBackers
         });
@@ -38,14 +39,12 @@ class OverallStats extends React.Component {
 
   render() {
     return (
-      <div>
-        <div className='project-status-container' style={{opacity: '.5', width: '35%', margin: 'auto'}}>
-          <Segment inverted compact>
-            <Statistic inverted color='red' value={this.state.totalDollars} label='total dollars raised' style={{opacity: '1'}} />
-            <Statistic inverted color='green' value={this.state.totalBackers} label='backers' style={{opacity: '1'}}/>
-            <Statistic inverted color='teal' value={this.state.totalProjects} label='projects' style={{opacity: '1'}}/>
-          </Segment>
-        </div>
+      <div className='overall-stats-container'>
+        <Segment inverted compact style={{paddingTop: '0', paddingBottom: '0', background: 'rgba(70, 70, 70, 0.65)'}}>
+          <Statistic inverted color='red' value={this.state.totalDollars} label='total raised' style={{opacity: '1', margin: '.5rem'}} />
+          <Statistic inverted color='green' value={this.state.totalBackers} label='backers' style={{opacity: '1'}}/>
+          <Statistic inverted color='teal' value={this.state.totalProjects} label='projects' style={{opacity: '1'}}/>
+        </Segment>
       </div>
     );
   }
