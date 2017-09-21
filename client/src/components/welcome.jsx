@@ -27,9 +27,6 @@ class Welcome extends React.Component {
               <img src="http://res.cloudinary.com/dyrrwpemp/image/upload/v1505863685/1yr-documentary-1400x500-1_1_i6ml83.jpg" />
             </div>
             <div>
-              <img src="http://res.cloudinary.com/dyrrwpemp/image/upload/v1505866274/slack-imgs-2_zhfxte.jpg" />
-            </div>
-            <div>
               <img src="http://res.cloudinary.com/dyrrwpemp/image/upload/v1505866275/slack-imgs-1_kzriel.jpg" />
             </div>
             <div>
