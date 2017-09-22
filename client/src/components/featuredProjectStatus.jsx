@@ -9,10 +9,10 @@ class FeaturedProjectStatus extends React.Component {
   render() {
     return (
       <div className='project-status-container'>
-        <Progress id='featured-project-status-bar' size='small' percent='88' indicating />
+        <Progress id='featured-project-status-bar' size='small' percent={this.props.percentFunded} indicating />
         <div id='featured-project-statistics-container'>
           <div className='featured-project-stat'>
-            <h5>{this.props.percentFunded}</h5>
+            <h5>{this.props.percentFunded}%</h5>
             <p>funded</p>
           </div>
           <div className='featured-project-stat'>
