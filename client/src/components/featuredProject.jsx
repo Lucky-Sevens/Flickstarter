@@ -30,11 +30,14 @@ class FeaturedProject extends React.Component {
           </div>
           <div className='basic-flex-column featured-project-container'>
             <div id='featured-project-content-container'>
-              <Header as='h2'>{this.props.project.name}
+              <Header as='h2'>
+              <Link to={`/allprojects/${this.props.project.id}`}>
+              <p>{this.props.project.name}</p>
+              </Link>
                 <Header.Subheader>
                   <div className='basic-flex-row'>
-                    By 
-                    <Link to={`/allprojects/${this.props.project.id}`} style={{paddingLeft: '4px'}}>
+                    By
+                    <Link to={`/profile/${this.props.featuredProjectProfileId}`} style={{paddingLeft: '4px'}}>
                       {this.props.featuredProjectCreatorDisplayName}
                     </Link>
                   </div>
@@ -53,7 +56,7 @@ class FeaturedProject extends React.Component {
                   </div>
                 </div>
               </div>
-              <FeaturedProjectStatus 
+              <FeaturedProjectStatus
                 contributed={this.props.project.raised_amount}
                 backers={this.props.featuredProjectBackers}
                 daysRemaining={this.props.featuredProjectDaysRemaining}

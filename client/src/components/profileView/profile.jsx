@@ -121,7 +121,7 @@ class Profile extends React.Component {
                 <a target="_blank" href={this.state.linkedin}>LinkedIn</a> | <a target="_blank" href={this.state.personalsite}>Personal Website</a>
                 <br/><br/>
               </Container>
-              <Container textAlign="center">
+              <Container textAlign="left">
                 {this.state.about}
               </Container>
               <SendMessage

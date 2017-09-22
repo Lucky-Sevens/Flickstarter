@@ -41,7 +41,6 @@ class Welcome extends React.Component {
             </div>
           </Carousel>
         </div>
-        <OverallStats/>
       </div>
     );
   }

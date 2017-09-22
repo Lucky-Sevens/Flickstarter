@@ -1,9 +1,3 @@
-.basic-flex-centered-column {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
 .basic-flex-centered-row {
   display: flex;
   justify-content: center;
@@ -140,6 +134,10 @@ top: 50%;
 
 #featured-project-content-container {
   margin: 2% 2% 0% 0%;
+}
+
+#featured-project-content-container h2 a {
+  color: black;
 }
 
 #featured-project-contribute-button-container {

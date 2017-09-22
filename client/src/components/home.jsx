@@ -26,7 +26,8 @@ class Home extends React.Component {
       featuredProjectCreatorDisplayName: '',
       featuredProjectPercentFunded: '',
       featuredProjectBackers: 0,
-      featuredProjectDaysRemaining: 0
+      featuredProjectDaysRemaining: 0,
+      featuredProjectProfileId: 0
       // totalDollars: '',
       // totalBackers: '',
       // totalProjects: ''
@@ -47,7 +48,8 @@ class Home extends React.Component {
           featuredProjectCreatorDisplayName: projectData.projects[0].profile.display,
           featuredProjectPercentFunded: Math.round(100 * (projectData.projects[0].raised_amount / projectData.projects[0].goal_amount)).toString(),
           featuredProjectBackers: projectData.projects[0].contributions.length,
-          featuredProjectDaysRemaining: getDaysRemaining(projectData.projects[0])
+          featuredProjectDaysRemaining: getDaysRemaining(projectData.projects[0]),
+          featuredProjectProfileId: projectData.projects[0].profile.id
         });
       },
       error: function () {
@@ -71,6 +73,7 @@ class Home extends React.Component {
               featuredProjectPercentFunded={this.state.featuredProjectPercentFunded}
               featuredProjectBackers={this.state.featuredProjectBackers}
               featuredProjectDaysRemaining={this.state.featuredProjectDaysRemaining}
+              featuredProjectProfileId={this.state.featuredProjectProfileId}
             />
           </Grid>
         </Segment>
