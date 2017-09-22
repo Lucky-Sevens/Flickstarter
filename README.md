@@ -65,15 +65,15 @@ And https://github.com/lorenwest/node-config/wiki/Environment-Variables#custom-e
 
 ## Passport OAuth Login
 
-Follow the instructions for Passport's Facebook Strategy. This will require making a new project and app on <developer.facebook.com>. Insert your Facebook Client ID, secret, and callback URL into the config files.
+Follow the instructions for Passport's Facebook Strategy. This will require making a new project and app on [developer.facebook.com](http://www.developer.facebook.com). Insert your Facebook Client ID, secret, and callback URL into the config files.
 
 ## Cloudinary Configuration
 
-Create a free account on <cloudinary.com>. Insert your cloud name and upload preset everywhere the 'openUploadWidget' method is called in this repository. This will allow you to access any media you upload while working on or using this application. If you do not need access to your uploaded media, you can skip this step.
+Create a free account on [cloudinary.com](http://www.cloudinary.com). Insert your cloud name and upload preset everywhere the 'openUploadWidget' method is called in this repository. This will allow you to access any media you upload while working on or using this application. If you do not need access to your uploaded media, you can skip this step.
 
 ## Stripe Configuration
 
-Follow the instructions for Stripe’s ‘Checkout’ API.  This will require making a Stripe account entering general company information on <dashboard.stripe.com>.  Add the Publishable Key to the front-end payment component and the Test Secret Key to the payment controller.
+Follow the instructions for Stripe’s ‘Checkout’ API.  This will require making a Stripe account entering general company information on [dashboard.stripe.com](http://www.dashboard.stripe.com).  Add the Publishable Key to the front-end payment component and the Test Secret Key to the payment controller.
 
 ## Database Initialization
 
