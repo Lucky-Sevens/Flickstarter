@@ -15,8 +15,9 @@ class Welcome extends React.Component {
 
   render() {
     return (
-        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-          <Carousel axis="horizontal" width='100%' showArrows showThumbs={false} infiniteLoop autoPlay dynamicHeight emulateTouch>
+      <div>
+        <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', zIndex: '-1' }}>
+          <Carousel axis="horizontal" width='100%' showArrows showThumbs={false} infiniteLoop autoPlay emulateTouch>
             <div>
               <img src="http://res.cloudinary.com/dyrrwpemp/image/upload/v1505518689/1_jo9krg.jpg" />
             </div>
@@ -25,9 +26,6 @@ class Welcome extends React.Component {
             </div>
             <div>
               <img src="http://res.cloudinary.com/dyrrwpemp/image/upload/v1505863685/1yr-documentary-1400x500-1_1_i6ml83.jpg" />
-            </div>
-            <div>
-              <img src="http://res.cloudinary.com/dyrrwpemp/image/upload/v1505866274/slack-imgs-2_zhfxte.jpg" />
             </div>
             <div>
               <img src="http://res.cloudinary.com/dyrrwpemp/image/upload/v1505866275/slack-imgs-1_kzriel.jpg" />
@@ -43,6 +41,7 @@ class Welcome extends React.Component {
             </div>
           </Carousel>
         </div>
+      </div>
     );
   }
 }
