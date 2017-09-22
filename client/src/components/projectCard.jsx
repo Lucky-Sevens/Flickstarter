@@ -71,7 +71,7 @@ class ProjectCard extends React.Component {
                   handleUpvote={this.handleUpvote}
                   upvoted={this.state.upvoted}
                 />
-                {this.state.upvoteCount}
+                {this.state.upvoteCount || this.props.upvotes}
               </div>
             </div>
           </div>

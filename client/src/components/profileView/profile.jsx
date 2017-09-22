@@ -149,6 +149,7 @@ class Profile extends React.Component {
                     profile={this.state.fullProfile}
                     id={project.id}
                     userUpvotes={this.state.userUpvotes}
+
                   />
                 )}
               </Tab.Pane>},
@@ -163,6 +164,7 @@ class Profile extends React.Component {
                     profile={this.state.fullProfile}
                     id={project.id}
                     userUpvotes={this.state.userUpvotes}
+                    upvotes={project.upvote_count}
                   />
                 )}
               </Tab.Pane> },

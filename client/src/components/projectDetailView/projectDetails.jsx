@@ -21,15 +21,37 @@ class ProjectDetails extends React.Component {
       raisedAmount: '',
       goalAmount: '',
       openRoles: [],
-      userBacked: false
+      userBacked: false,
+      userContribution: {},
+      upvoted: false,
+      upvoteCount: 0
     };
-
+    this.handleUpvote = this.handleUpvote.bind(this);
     this.informer = this.informer.bind(this);
   }
 
   informer(e) {
     let _this = this;
     _this.updateComponent();
+  }
+
+  handleUpvote() {
+    let upvoteCount = this.state.upvoteCount;
+    let isUpvoted = this.state.upvoted;
+    this.setState({
+      upvoteCount: isUpvoted ? upvoteCount - 1 : upvoteCount + 1,
+      upvoted: isUpvoted ? false : true
+    });
+    $.ajax({
+      url: '/followsUpvotes/upvote',
+      type: 'POST',
+      data: {
+        projectId: this.state.project.id
+      },
+      error: (err) => {
+        console.log(err.statusText, err);
+      }
+    });
   }
 
   updateComponent() {
@@ -47,7 +69,9 @@ class ProjectDetails extends React.Component {
           goalAmount: commafy(data.project.goal_amount),
           openRoles: data.openRoles,
           userBacked: data.userContribution ? true : false,
-          userContribution: data.userContribution
+          userContribution: data.userContribution,
+          upvoted: data.userUpvotes[data.project.id] ? true : false,
+          upvoteCount: data.project.upvote_count
         });
       },
       error: (err) => {
@@ -74,6 +98,9 @@ class ProjectDetails extends React.Component {
                 videoType={this.state.videoType}
                 videoId={this.state.videoId}
                 project={this.state.project}
+                handleUpvote={this.handleUpvote}
+                upvoted={this.state.upvoted}
+                upvoteCount={this.state.upvoteCount}
               />
               <ProjectDetailStatus
                 informer={this.informer}
