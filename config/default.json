@@ -1,41 +1,11 @@
-// {
-//   "knex": {
-//     "client": "postgresql",
-//     "connection": {
-//       "database": "d7a4hmgge0uoj2",
-//       "user": "dwzqlghplzyfzi",
-//       "password": "c4c1aa193fd998c933e2b8122e46b123f5ce71838015de162796ca1973699888",
-//       "host": "ec2-54-83-48-188.compute-1.amazonaws.com",
-//       "port": 5432
-//     },
-//     "pool": {
-//       "min": 1,
-//       "max": 2
-//     },
-//     "migrations": {
-//       "tableName": "knex_migrations",
-//       "directory": "db/migrations"
-//     },
-//     "seeds": {
-//       "directory": "db/seeds"
-//     }
-//   },
-
-//   "passport": {
-//     "Google": {},
-//     "Facebook": {},
-//     "Twitter": {}
-//   }
-// }
-
 {
   "knex": {
     "client": "postgresql",
     "connection": {
-      "database": "thesis",
-      "user": "postgres",
-      "password": "postgres",
-      "host": "localhost",
+      "database": "d7a4hmgge0uoj2",
+      "user": "dwzqlghplzyfzi",
+      "password": "c4c1aa193fd998c933e2b8122e46b123f5ce71838015de162796ca1973699888",
+      "host": "ec2-54-83-48-188.compute-1.amazonaws.com",
       "port": 5432
     },
     "pool": {
@@ -50,11 +20,14 @@
       "directory": "db/seeds"
     }
   },
+
   "passport": {
     "Google": {},
     "Facebook": {},
     "Twitter": {}
   }
 }
+
+
 
 
