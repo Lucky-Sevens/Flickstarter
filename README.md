@@ -1,16 +1,12 @@
 # Project Name
 
-Crowdfunding platform for film creators
+Crowdfunding and talent sourcing platform for filmmakers
 
 ## Team
 
-- Pavan Sethi
-- Miles Sorce
-- Fiona Wong
-
-## Roadmap
-
-View the project roadmap [here](LINK_TO_DOC)
+- [Pavan Sethi](https://github.com/pavansethi)
+- [Miles Sorce](https://github.com/milessorce)
+- [Fiona Wong](https://github.com/fiona-wong)
 
 ## Contributing
 
@@ -33,7 +29,10 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
 - Node 6.9.x
 - Redis 3.2.x
 - Postgresql 9.6.x
-- etc
+- Yarn 1.x
+- Facebook Client ID/Secret
+- Stripe API key
+- Cloudinary account
 
 ## Development
 
@@ -55,13 +54,26 @@ yarn install
 ```
 
 ## App Configuration
+IMPORTANT: Due to an unknown issue with Heroku and the config module, we are currently unable to use separate default, development, and production configurations. Heroku is only accessing the default.json file, meaning the production.json db configuration must be copied over to the default.json prior to deployment. To run Flickstarter locally, keep the default.json file in its current state.
 
-Override settings `config/default.json` in any environment by making a copy of `config/ENV.example.json` and naming it `config/ENV.json` and setting the appropriate variable.
+INTENDED USE: Override settings `config/default.json` in any environment by making a copy of `config/ENV.example.json` and naming it `config/ENV.json` and setting the appropriate variable.
 
 For environments that require use of environment variables, you can supply variables as defined in `config/custom-environment-variables.json`.
 
 See https://www.npmjs.com/package/config
 And https://github.com/lorenwest/node-config/wiki/Environment-Variables#custom-environment-variables
+
+## Passport OAuth Login
+
+Follow the instructions for Passport's Facebook Strategy. This will require making a new project and app on [developer.facebook.com](developer.facebook.com). Insert your Facebook Client ID, secret, and callback URL into the config files.
+
+## Cloudinary Configuration
+
+Create a free account on [cloudinary.com](cloudinary.com). Insert your cloud name and upload preset everywhere the 'openUploadWidget' method is called in this repository. This will allow you to access any media you upload while working on or using this application. If you do not need access to your uploaded media, you can skip this step.
+
+## Stripe Configuration
+
+Follow the instructions for Stripe’s ‘Checkout’ API.  This will require making a Stripe account entering general company information on [dashboard.stripe.com](dashboard.stripe.com).  Add the Publishable Key to the front-end payment component and the Test Secret Key to the payment controller.
 
 ## Database Initialization
 
@@ -97,8 +109,10 @@ Note: `--env NODE_ENV` may be omitted for development. For example, `knex migrat
 
 To run webpack build: `yarn run build`
 
-To run server: `yarn run start`
+To run nodemon server: `yarn run start`
 
 To run tests: `yarn run test`
 
 To run your redis server for the session store `redis-server`
+
+To create and seed db: `yarn run createdb`
