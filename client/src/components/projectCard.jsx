@@ -37,7 +37,7 @@ class ProjectCard extends React.Component {
       }
     });
   }
-
+  
   render() {
     return (
       <Card fluid raised>
@@ -71,7 +71,7 @@ class ProjectCard extends React.Component {
                   handleUpvote={this.handleUpvote}
                   upvoted={this.state.upvoted}
                 />
-                {this.state.upvoteCount}
+                {this.state.upvoteCount }
               </div>
             </div>
           </div>

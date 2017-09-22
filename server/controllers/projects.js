@@ -48,7 +48,17 @@ module.exports.getOne = (req, res) => {
         throw project;
       }
       projectData.project = project;
-      return models.UserProjectContribution.where({user_id: req.user.id, project_id: project.id}).fetch();
+      return models.FollowUpvote.where({user_id: req.user.id}).fetchAll();
+    })
+    .then(upvotes => {
+      if (upvotes) {
+        let upvoteStorage = {};
+        upvotes.forEach(upvote => {
+          upvoteStorage[upvote.attributes.project_id] = upvote.attributes.project_id;
+        });
+        projectData.userUpvotes = upvoteStorage;
+      }
+      return models.UserProjectContribution.where({user_id: req.user.id, project_id: projectData.project.id}).fetch();
     })
     .then(contribution => {
       if (contribution) {

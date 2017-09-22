@@ -136,7 +136,7 @@ class Profile extends React.Component {
           </Grid.Row>
           <Divider/>
           <Grid.Row>
-            <Tab menu={{ secondary: true, pointing: true }} panes={[
+            <Tab style={{width: '60%'}} menu={{ secondary: true, pointing: true }} panes={[
               {menuItem: 'Projects Created', render: () => <Tab.Pane attached={false}>
                 {this.state.projects.map((project, index) =>
                   <ProjectCard
@@ -149,6 +149,7 @@ class Profile extends React.Component {
                     profile={this.state.fullProfile}
                     id={project.id}
                     userUpvotes={this.state.userUpvotes}
+
                   />
                 )}
               </Tab.Pane>},
