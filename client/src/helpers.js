@@ -10,3 +10,8 @@ export const getDaysRemaining = project => {
 export const commafy = number => {
   return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
+
+export const cleanNumber = string => {
+  return string.replace(/\D/g,'');
+}
+

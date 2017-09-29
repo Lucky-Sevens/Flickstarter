@@ -14,6 +14,7 @@ import ProjectRoles from './components/projectRoles.jsx';
 import ProjectDuration from './components/projectDuration.jsx';
 import ProjectFundingGoal from './components/projectFundingGoal.jsx';
 import SaveProjectModal from './components/saveProjectModal.jsx';
+import {cleanNumber} from '../../helpers.js';
 
 class CreateProject extends React.Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class CreateProject extends React.Component {
     this.getWarningMessage = this.getWarningMessage.bind(this);
     this.getUploadWidget = this.getUploadWidget.bind(this);
     this.handleSaveClick = this.handleSaveClick.bind(this);
+    this.handleNumberInputChange = this.handleNumberInputChange.bind(this);
   }
 
   handleGenreSelection(event, data) {
@@ -57,6 +59,14 @@ class CreateProject extends React.Component {
     this.setState({
       projectRoles: data.value,
       incompleteField: false
+    });
+  }
+
+  handleNumberInputChange(event, data) {
+    event.preventDefault();
+    this.setState({
+      [event.target.name]: Number(cleanNumber(data.value)),
+      incompleteField: false,
     });
   }
 
@@ -154,7 +164,7 @@ class CreateProject extends React.Component {
   }
 
   componentDidUpdate() {
-    if (this.state.incompleteField === true) {
+    if (this.state.incompleteField === true || this.state.projectFundingGoal === null) {
       let element = document.getElementById('save-project-warning-alert');
       element.scrollIntoView();
     }
@@ -232,8 +242,8 @@ class CreateProject extends React.Component {
                 projectRoles={this.state.projectRoles}
                 roleOptions={this.state.roleOptions}
               />
-              <ProjectDuration handleProjectDurationInput={this.handleInputChange}/>
-              <ProjectFundingGoal handleFundingGoalInput={this.handleInputChange}/>
+              <ProjectDuration handleProjectDurationInput={this.handleNumberInputChange}/>
+              <ProjectFundingGoal handleFundingGoalInput={this.handleNumberInputChange}/>
             </div>
             {this.state.saving ? <Button loading primary onClick={this.handleSaveClick}>Save</Button> : <Button primary onClick={this.handleSaveClick}>Save</Button>}
             {this.state.incompleteField ? this.getWarningMessage() : null}
